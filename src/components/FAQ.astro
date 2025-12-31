@@ -1,58 +1,80 @@
 ---
 // FAQ section - Objections transformées en questions
 const faqs = [
-  {
-    q: "Est-ce que 499€ ça vaut vraiment le coup ?",
-    a: "Faites le calcul : si vous gagnez 10h/semaine grâce à l'automatisation, à 50€/h c'est 500€ économisés dès la première semaine. La formation se rembourse en moins de 2 semaines. Et vous gardez ces heures gagnées à vie."
-  },
-  {
-    q: "Je n'ai pas le temps de suivre une formation...",
-    a: "+ de 90 leçons de 5-15 min, à votre rythme. Accès à vie. La plupart des apprenants deviennent autonomes en 5 semaines à raison de 1h/jour. Et c'est du temps que vous récupérerez x10 ensuite."
-  },
-  {
-    q: "Je suis débutant, c'est pas trop technique ?",
-    a: "Make est no-code : zéro ligne de code. La formation part de zéro. Si vous savez utiliser Excel et envoyer un email, vous avez le niveau. Plus de 300 débutants l'ont déjà suivie avec succès."
-  },
-  {
-    q: "Pourquoi payer alors qu'il y a des tutos gratuits ?",
-    a: "YouTube vous apprend les clics. Moi je vous apprends ce qui marche en production. 5 ans d'expérience terrain, 150+ projets clients, les erreurs à éviter et les patterns qui fonctionnent vraiment."
-  },
-  {
-    q: "Et si la formation ne me convient pas ?",
-    a: "Garantie 30 jours satisfait ou remboursé, sans justification. Si vous estimez que ça ne vous a rien apporté, je vous rembourse. Mais sur 300+ apprenants, personne n'a encore demandé de remboursement."
-  },
-  {
-    q: "Comment ça marche avec le CPF ?",
-    a: "Remplissez le formulaire d'éligibilité, je m'occupe de tout l'administratif. En général c'est financé à 100% — vous ne payez rien de votre poche. Réponse sous 24h."
-  }
+    {
+        q: "Est-ce que 499€/an ça vaut vraiment le coup ?",
+        a: "Fais le calcul : si vous gagnez 10h/semaine grâce à l'automatisation, que votre temps vaut 50€/h c'est 500€ économisés dès la première semaine.",
+    },
+    {
+        q: "Je n'ai pas le temps de suivre une formation...",
+        a: "+ de 90 leçons de 5-15 min, à ton rythme. Tu n'as pas le temps de récupérer enfin ton temps ?",
+    },
+    {
+        q: "Je suis débutant, c'est pas trop technique ?",
+        a: "Non. J'ai 0 background technique, je viens pas du monde du développement mais j'ai appris, et je t'enseignerai.",
+    },
+    {
+        q: "Pourquoi payer alors qu'il y a des tutos gratuits ?",
+        a: "Sur YouTube tu es livré à toi-même, si tu galères tu es seul. Il n'y a pas de plan, juste des vidéos par ci par là, avec des créateurs différents.",
+    },
+    {
+        q: "Et si la formation ne me convient pas ?",
+        a: "Garantie 30 jours : je te rembourse sans poser de questions. Pas de justification, pas de formulaire, un simple email suffit.",
+    },
+    {
+        q: "Comment ça marche avec le CPF ?",
+        a: "Remplis le formulaire d'éligibilité, je m'occupe de tout l'administratif.",
+    },
+    {
+        q: "Pourquoi tu es LE formateur qu'il me faut ?",
+        a: "J'ai formé dans 15 structures différentes : Digital Campus, Rocket School etc... Ensuite je t'enseigne ce que j'ai appris des prestations avec les clients depuis 2021, enfin j'ai eu toutes les certifications de Make en premier en france (Partner, Trainer, Certifications 4 & 5)",
+    },
 ];
 ---
 
 <section class="py-16 md:py-20 bg-zinc-50/50">
-  <div class="max-w-2xl mx-auto px-4 md:px-6">
-    <!-- Header -->
-    <div class="text-center mb-10">
-      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Vos questions</p>
-      <h2 class="text-2xl md:text-3xl font-semibold text-zinc-900">
-        Vous hésitez encore ?
-      </h2>
-    </div>
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <p
+                class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3"
+            >
+                Vos questions
+            </p>
+            <h2 class="text-2xl md:text-3xl font-semibold text-zinc-900">
+                Vous hésitez encore ?
+            </h2>
+        </div>
 
-    <!-- FAQ Items -->
-    <div class="space-y-2">
-      {faqs.map((faq, i) => (
-        <details class="group" open={i === 0}>
-          <summary class="flex items-center justify-between p-4 rounded-lg bg-white border border-zinc-100 cursor-pointer list-none hover:border-zinc-200 transition-colors">
-            <span class="text-sm font-medium text-zinc-900 pr-4">{faq.q}</span>
-            <svg class="w-4 h-4 text-zinc-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <div class="px-4 py-3 text-sm text-zinc-500">
-            {faq.a}
-          </div>
-        </details>
-      ))}
+        <!-- FAQ Items -->
+        <div class="w-full md:max-w-2xl md:mx-auto space-y-2">
+            {
+                faqs.map((faq, i) => (
+                    <details class="group" open={i === 0}>
+                        <summary class="flex items-center justify-between p-4 rounded-lg bg-white border border-zinc-100 cursor-pointer list-none hover:border-zinc-200 transition-colors">
+                            <span class="text-sm font-medium text-zinc-900 pr-4">
+                                {faq.q}
+                            </span>
+                            <svg
+                                class="w-4 h-4 text-zinc-400 shrink-0 transition-transform group-open:rotate-180"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"
+                                />
+                            </svg>
+                        </summary>
+                        <div class="px-4 py-3 text-sm text-zinc-500 leading-relaxed">
+                            {faq.a}
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
     </div>
-  </div>
 </section>

@@ -34,3 +34,45 @@ body {
   background-color: var(--color-accent-500);
   color: white;
 }
+
+/* CTA with animated border */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.cta-border-wrap {
+  position: relative;
+  padding: 2px;
+  border-radius: 14px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0%,
+    transparent 30%,
+    rgba(167, 139, 250, 0.4) 40%,
+    rgba(167, 139, 250, 1) 50%,
+    rgba(167, 139, 250, 0.4) 60%,
+    transparent 70%,
+    transparent 100%
+  );
+  animation: rotate-border 4s linear infinite;
+}
+
+@keyframes rotate-border {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-border-wrap:hover .cta-inner {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.25);
+}

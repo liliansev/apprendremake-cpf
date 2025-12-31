@@ -1,0 +1,86 @@
+---
+// Navbar - Sticky with dynamic CTA and hide on pricing
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="absolute inset-0 bg-zinc-950/95 backdrop-blur-md border-b border-white/5"></div>
+
+  <div class="relative max-w-5xl mx-auto px-4 md:px-6">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <span class="text-white font-semibold text-sm tracking-tight">Apprendre Make</span>
+      </a>
+
+      <!-- CTA - Hidden by default, appears when hero CTA scrolls out -->
+      <a
+        id="navbar-cta"
+        href="#pricing"
+        class="navbar-cta-hidden inline-flex items-center gap-2 bg-white hover:bg-zinc-100 text-zinc-900 text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300"
+      >
+        <span class="hidden sm:inline">Rejoindre la formation</span><span class="sm:hidden">Rejoindre</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar');
+    const navbarCta = document.getElementById('navbar-cta');
+    const heroCta = document.getElementById('hero-cta');
+    const pricingSection = document.getElementById('pricing');
+
+    if (!navbar || !navbarCta) return;
+
+    function updateNavbar() {
+      const pricingRect = pricingSection?.getBoundingClientRect();
+      const heroCtaRect = heroCta?.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Hide entire navbar when pricing section is visible
+      const pricingVisible = pricingRect && pricingRect.top < viewportHeight * 0.5 && pricingRect.bottom > 100;
+      navbar.classList.toggle('navbar-hidden', pricingVisible);
+
+      // Show navbar CTA when hero CTA is scrolled out of view
+      const heroCtaVisible = heroCtaRect && heroCtaRect.bottom > 80;
+      navbarCta.classList.toggle('navbar-cta-hidden', heroCtaVisible);
+      navbarCta.classList.toggle('navbar-cta-visible', !heroCtaVisible);
+    }
+
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+  });
+</script>
+
+<style>
+  #navbar {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  #navbar.navbar-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .navbar-cta-hidden {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    pointer-events: none;
+  }
+
+  .navbar-cta-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+</style>

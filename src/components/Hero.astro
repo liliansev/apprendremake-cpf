@@ -1,82 +1,221 @@
 ---
-// Hero section - Modern minimal design
+// Hero section - Full-screen dark design with animated grid
 ---
 
-<section class="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
-  <!-- Subtle gradient background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-violet-50/30 to-white"></div>
+<section class="relative min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden bg-zinc-950">
+  <!-- Animated grid pattern -->
+  <div class="absolute inset-0">
+    <div
+      class="absolute inset-0 opacity-[0.03]"
+      style="background-image: linear-gradient(to right, #a78bfa 1px, transparent 1px), linear-gradient(to bottom, #a78bfa 1px, transparent 1px); background-size: 60px 60px;"
+    ></div>
 
-  <!-- Grid pattern -->
-  <div class="absolute inset-0 opacity-[0.015]" style="background-image: linear-gradient(to right, #7c3aed 1px, transparent 1px), linear-gradient(to bottom, #7c3aed 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <!-- Animated glow lines -->
+    <div class="grid-line-h absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" style="top: 20%;"></div>
+    <div class="grid-line-h absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/35 to-transparent" style="top: 40%; animation-delay: 2s;"></div>
+    <div class="grid-line-h absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/25 to-transparent" style="top: 60%; animation-delay: 4s;"></div>
+    <div class="grid-line-v absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-violet-400/40 to-transparent" style="left: 15%;"></div>
+    <div class="grid-line-v absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-violet-500/35 to-transparent" style="left: 85%; animation-delay: 2.5s;"></div>
+    <div class="grid-line-v absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-violet-500/20 to-transparent" style="left: 50%; animation-delay: 1s;"></div>
+  </div>
 
-  <div class="relative max-w-5xl mx-auto px-4 md:px-6">
-    <div class="text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 mb-6">
-        <span class="inline-flex items-center gap-1.5 text-violet-600 text-xs font-medium px-3 py-1.5 rounded-full bg-violet-50 border border-violet-100">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-          </svg>
-          Certifié Make Partner
-        </span>
-        <span class="inline-flex items-center gap-1.5 text-zinc-600 text-xs font-medium px-3 py-1.5 rounded-full bg-zinc-100 border border-zinc-200">
-          + de 90 leçons
-        </span>
-      </div>
+  <!-- Gradient orbs -->
+  <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-violet-600/15 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-3xl"></div>
 
-      <!-- Headline -->
-      <h1 class="text-[1.625rem] sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-zinc-900 mb-5 leading-[1.15]">
-        Automatisez <span class="text-violet-600">80%</span> de vos tâches<br class="hidden sm:block" />
-        <span class="text-zinc-400">en 5 semaines</span>
-      </h1>
+  <!-- Radial fade -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#09090b_75%)]"></div>
 
-      <!-- Subheadline -->
-      <p class="text-base md:text-lg text-zinc-500 max-w-xl mx-auto mb-8 leading-relaxed">
-        De zéro à autonome sur Make. + de 90 leçons pratiques, des vrais projets terrain, et un formateur qui utilise Make au quotidien pour ses clients.
-      </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
-        <a
-          href="#pricing"
-          class="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium px-6 py-3.5 rounded-lg transition-all"
-        >
-          <span>Je rejoins la formation — 499€</span>
-          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-        <a
-          href="#programme"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-zinc-600 hover:text-zinc-900 text-sm font-medium px-6 py-3 transition-colors"
-        >
-          <span>Voir le programme complet</span>
-        </a>
-      </div>
-
-      <!-- Social Proof -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm">
-        <div class="flex items-center gap-2">
-          <div class="flex -space-x-2">
-            <div class="w-7 h-7 rounded-full bg-violet-200 border-2 border-white"></div>
-            <div class="w-7 h-7 rounded-full bg-blue-200 border-2 border-white"></div>
-            <div class="w-7 h-7 rounded-full bg-emerald-200 border-2 border-white"></div>
-            <div class="w-7 h-7 rounded-full bg-amber-200 border-2 border-white"></div>
-          </div>
-          <div class="flex items-center gap-1.5 text-zinc-500">
-            <div class="flex">
-              {[1, 2, 3, 4, 5].map(() => (
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-              ))}
-            </div>
-            <span class="text-zinc-600 font-medium">300+ apprenants</span>
-          </div>
+  <!-- Main content -->
+  <div class="relative flex-1 flex flex-col justify-center pt-20 pb-8 md:pt-24 md:pb-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 w-full">
+      <div class="text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 mb-6 md:mb-10">
+          <span class="inline-flex items-center gap-1.5 text-violet-300 text-xs font-medium px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            Certifié Make Partner
+          </span>
+          <span class="inline-flex items-center gap-1.5 text-zinc-400 text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+            + de 90 leçons
+          </span>
         </div>
-        <span class="hidden sm:block text-zinc-300">•</span>
-        <span class="text-zinc-500">Formateur de Qonto, Alan, Vercel</span>
+
+        <!-- Headline -->
+        <div class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white mb-4 md:mb-6 leading-[1.1] text-center">
+          <div>Automatisez <span id="percent-counter" class="inline-block min-w-[3.5ch] text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-300">0%</span> de</div>
+          <div class="flex justify-center">
+            <span class="text-left min-w-[14ch] pl-[1ch]">votre <span id="rotating-word" class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-300" style="opacity: 0;"></span></span>
+          </div>
+          <div class="text-zinc-500">en 2 semaines</div>
+        </div>
+
+        <!-- Subheadline -->
+        <p class="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+          De zéro à autonome sur Make. + de 90 leçons pratiques, des vrais projets terrain, et un formateur qui utilise Make au quotidien.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 md:mb-16">
+          <!-- Primary CTA with animated border -->
+          <div class="cta-border-wrap w-full sm:w-auto">
+            <a
+              id="hero-cta"
+              href="#pricing"
+              class="cta-inner group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-zinc-50 hover:bg-zinc-100 text-zinc-900 text-sm font-semibold px-8 py-4 rounded-xl transition-all"
+            >
+              <span>Rejoindre la formation</span>
+              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+          <a
+            href="#programme"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-zinc-400 hover:text-white text-sm font-medium px-6 py-4 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Voir le programme</span>
+          </a>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="flex items-center justify-center mb-8 md:mb-16">
+          <span class="text-zinc-400 text-sm">300+ apprenants formés</span>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Trusted by logos - Integrated in Hero -->
+  <div class="relative pb-6 md:pb-12">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <p class="text-center text-[10px] text-zinc-600 uppercase tracking-widest mb-4 md:mb-6">
+        Ils m'ont fait confiance
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Qonto</span>
+        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Alan</span>
+        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Vercel</span>
+        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Notion</span>
+        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Slack</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom luminous border -->
+  <div class="absolute bottom-0 left-0 right-0">
+    <div class="h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent"></div>
+  </div>
 </section>
+
+<style>
+  /* Grid lines animation - Enhanced */
+  .grid-line-h {
+    animation: pulse-h 4s ease-in-out infinite;
+  }
+
+  .grid-line-v {
+    animation: pulse-v 5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-h {
+    0%, 100% {
+      opacity: 0;
+      transform: scaleX(0.2);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes pulse-v {
+    0%, 100% {
+      opacity: 0;
+      transform: scaleY(0.2);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const counter = document.getElementById('percent-counter');
+    const rotatingWord = document.getElementById('rotating-word');
+    const words = ['CRM', 'Notion', 'boîte mail', 'facturation', 'prospection', 'onboarding', 'reporting'];
+    let wordIndex = 0;
+    const counterDuration = 1500;
+
+    // Setup rotating word styles
+    if (rotatingWord) {
+      rotatingWord.style.transition = 'opacity 0.2s ease-out, transform 0.2s ease-out';
+      rotatingWord.style.display = 'inline-block';
+      rotatingWord.style.transform = 'translateY(8px)';
+    }
+
+    // Start both animations immediately
+    const startTime = performance.now();
+
+    // Counter: linear 0 to 95 in 1.5s
+    const updateCounter = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / counterDuration, 1);
+      const currentValue = Math.round(progress * 95);
+
+      if (counter) {
+        counter.textContent = currentValue + '%';
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      }
+    };
+
+    // First word appears with fade-in (from empty)
+    const showFirstWord = () => {
+      if (rotatingWord) {
+        rotatingWord.textContent = words[0];
+        rotatingWord.style.opacity = '1';
+        rotatingWord.style.transform = 'translateY(0)';
+      }
+    };
+
+    // Rotate to next word
+    const rotateWord = () => {
+      if (!rotatingWord) return;
+
+      rotatingWord.style.opacity = '0';
+      rotatingWord.style.transform = 'translateY(-8px)';
+
+      setTimeout(() => {
+        wordIndex = (wordIndex + 1) % words.length;
+        rotatingWord.textContent = words[wordIndex];
+        rotatingWord.style.opacity = '1';
+        rotatingWord.style.transform = 'translateY(0)';
+      }, 150);
+    };
+
+    // Launch sequence
+    requestAnimationFrame(updateCounter);
+
+    // First word appears at 150ms
+    setTimeout(showFirstWord, 150);
+
+    // Second word when counter hits 95% (at 1500ms)
+    setTimeout(() => {
+      rotateWord();
+      // Then rotate every 2s
+      setInterval(rotateWord, 2000);
+    }, counterDuration);
+  });
+</script>
