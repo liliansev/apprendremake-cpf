@@ -1,55 +1,65 @@
 ---
 // CTA Final - Vente directe
+import CTAButton from "./CTAButton.astro";
+
+const benefits = [
+    "+ de 90 leçons pratiques",
+    "De zéro à autonome",
+    "Nouveaux projets réguliers",
+];
+
+const reassurances = [
+    "🔒 Paiement sécurisé",
+    "Accès immédiat",
+    "Garantie 30 jours",
+];
 ---
 
 <section id="cta-final" class="py-16 md:py-24 bg-zinc-900">
-  <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
-    <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">
-      Arrêtez de perdre du temps.<br class="hidden sm:block" />
-      <span class="text-violet-400">Automatisez.</span>
-    </h2>
+    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+            Arrêtez de perdre du temps.<br class="hidden sm:block" />
+            <span class="text-violet-400">Automatisez.</span>
+        </h2>
 
-    <!-- Benefits recap -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-zinc-400 mb-6">
-      <span class="flex items-center gap-2">
-        <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        + de 90 leçons pratiques
-      </span>
-      <span class="flex items-center gap-2">
-        <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        De zéro à autonome
-      </span>
-      <span class="flex items-center gap-2">
-        <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        Accès à vie
-      </span>
+        <!-- Benefits -->
+        <ul
+            class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-zinc-400 mb-6"
+        >
+            {
+                benefits.map((benefit) => (
+                    <li class="flex items-center gap-2">
+                        <svg
+                            class="w-4 h-4 text-violet-400 shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"
+                            />
+                        </svg>
+                        {benefit}
+                    </li>
+                ))
+            }
+        </ul>
+
+        <!-- Price -->
+        <p class="text-zinc-400 text-sm mb-6">
+            <span class="text-white font-semibold text-lg">499€/an</span> · Mises
+            à jour régulières
+        </p>
+
+        <!-- CTA -->
+        <CTAButton href="#pricing" />
+
+        <!-- Micro-reassurance -->
+        <p class="text-xs text-zinc-500 mt-4">
+            {reassurances.join(" · ")}
+        </p>
     </div>
-
-    <!-- Price -->
-    <p class="text-zinc-400 text-sm mb-6">
-      <span class="text-white font-semibold text-lg">499€/an</span> · Mises à jour à vie
-    </p>
-
-    <!-- CTA -->
-    <a
-      href="#pricing"
-      class="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-400 text-white text-sm font-medium px-8 py-4 rounded-xl transition-colors"
-    >
-      <span>Rejoindre la formation</span>
-      <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-      </svg>
-    </a>
-
-    <!-- Micro-reassurance -->
-    <p class="text-xs text-zinc-500 mt-4">
-      🔒 Paiement sécurisé · Accès immédiat · Garantie 30 jours
-    </p>
-  </div>
 </section>

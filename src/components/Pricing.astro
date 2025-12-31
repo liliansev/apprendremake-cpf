@@ -1,5 +1,6 @@
 ---
 // Pricing section - Dark mode with Hero DA
+import CTAButton from "./CTAButton.astro";
 ---
 
 <section
@@ -218,30 +219,7 @@
                     </div>
 
                     <!-- CTA -->
-                    <div class="cta-border-wrap">
-                        <a
-                            href="https://lilian.yt/paiementmake?ref=siteweb"
-                            class="cta-inner group block w-full text-center bg-zinc-50 hover:bg-white text-zinc-900 font-semibold px-6 py-4 rounded-xl transition-all"
-                        >
-                            <span
-                                class="flex items-center justify-center gap-2"
-                            >
-                                Rejoindre la formation
-                                <svg
-                                    class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
+                    <CTAButton href="https://lilian.yt/paiementmake?ref=siteweb" fullWidth={true} />
 
                     <p class="text-center text-xs text-zinc-500 mt-4">
                         Paiement sécurisé · Accès immédiat

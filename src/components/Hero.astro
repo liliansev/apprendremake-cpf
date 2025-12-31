@@ -1,8 +1,22 @@
 ---
 // Hero section - Full-screen dark design with animated grid
+import CTAButton from "./CTAButton.astro";
+
+const features = [
+  "90+ leçons vidéo",
+  "Projets pratiques",
+  "Exercices corrigés",
+  "Support réactif"
+];
+
+const apps = [
+  "Notion", "Airtable", "Google Sheets", "Slack", "Gmail",
+  "HubSpot", "Stripe", "Calendly", "Typeform", "Shopify",
+  "Webflow", "Discord", "Trello", "Asana", "Salesforce"
+];
 ---
 
-<section class="relative min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden bg-zinc-950">
+<section class="relative min-h-screen flex flex-col overflow-hidden bg-zinc-950">
   <!-- Animated grid pattern -->
   <div class="absolute inset-0">
     <div
@@ -27,11 +41,11 @@
   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#09090b_75%)]"></div>
 
   <!-- Main content -->
-  <div class="relative flex-1 flex flex-col justify-center pt-20 pb-8 md:pt-24 md:pb-16">
+  <div class="relative flex-1 flex flex-col justify-center pt-20 pb-8 md:pt-24 md:pb-12">
     <div class="max-w-5xl mx-auto px-4 md:px-6 w-full">
       <div class="text-center">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 mb-6 md:mb-10">
+        <div class="inline-flex items-center gap-2 mb-6 md:mb-8">
           <span class="inline-flex items-center gap-1.5 text-violet-300 text-xs font-medium px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20">
             <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -53,25 +67,25 @@
         </div>
 
         <!-- Subheadline -->
-        <p class="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
-          De zéro à autonome sur Make. + de 90 leçons pratiques, des vrais projets terrain, et un formateur qui utilise Make au quotidien.
+        <p class="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed">
+          De zéro à autonome sur Make. Des vrais projets terrain, et un formateur qui utilise Make au quotidien.
         </p>
 
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 md:mb-16">
-          <!-- Primary CTA with animated border -->
-          <div class="cta-border-wrap w-full sm:w-auto">
-            <a
-              id="hero-cta"
-              href="#pricing"
-              class="cta-inner group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-zinc-50 hover:bg-zinc-100 text-zinc-900 text-sm font-semibold px-8 py-4 rounded-xl transition-all"
-            >
-              <span>Rejoindre la formation</span>
-              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        <!-- Feature tags -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-10">
+          {features.map((feature) => (
+            <span class="inline-flex items-center gap-1.5 text-zinc-500 text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/5">
+              <svg class="w-3 h-3 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
               </svg>
-            </a>
-          </div>
+              {feature}
+            </span>
+          ))}
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 md:mb-12">
+          <CTAButton href="#pricing" id="hero-cta" animated={true} />
           <a
             href="#programme"
             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-zinc-400 hover:text-white text-sm font-medium px-6 py-4 transition-colors"
@@ -84,26 +98,65 @@
           </a>
         </div>
 
-        <!-- Social Proof -->
-        <div class="flex items-center justify-center mb-8 md:mb-16">
-          <span class="text-zinc-400 text-sm">300+ apprenants formés</span>
+        <!-- Social Proof with avatars -->
+        <div class="flex items-center justify-center gap-4">
+          <div class="flex -space-x-2">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 border-2 border-zinc-950 flex items-center justify-center text-[10px] font-bold text-white">JD</div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-zinc-950 flex items-center justify-center text-[10px] font-bold text-white">ML</div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 border-2 border-zinc-950 flex items-center justify-center text-[10px] font-bold text-white">AS</div>
+            <div class="w-8 h-8 rounded-full bg-zinc-800 border-2 border-zinc-950 flex items-center justify-center text-[10px] font-medium text-zinc-400">+300</div>
+          </div>
+          <span class="text-zinc-400 text-sm">élèves formés</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Trusted by logos - Integrated in Hero -->
-  <div class="relative pb-6 md:pb-12">
-    <div class="max-w-4xl mx-auto px-4 md:px-6">
-      <p class="text-center text-[10px] text-zinc-600 uppercase tracking-widest mb-4 md:mb-6">
-        Ils m'ont fait confiance
+  <!-- Full-width Apps Banner -->
+  <div class="relative pb-8 md:pb-12">
+    <!-- Separator line -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
+
+    <div class="pt-8 md:pt-10">
+      <p class="text-center text-[10px] text-zinc-600 uppercase tracking-[0.2em] mb-6">
+        Connectez Make à + de 2000 applications
       </p>
-      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Qonto</span>
-        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Alan</span>
-        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Vercel</span>
-        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Notion</span>
-        <span class="text-zinc-600 font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity">Slack</span>
+
+      <!-- Scrolling logos -->
+      <div class="relative overflow-hidden">
+        <!-- Fade edges -->
+        <div class="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-zinc-950 to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-zinc-950 to-transparent z-10"></div>
+
+        <!-- Scrolling container -->
+        <div class="flex animate-scroll">
+          <!-- First set -->
+          <div class="flex items-center gap-8 md:gap-12 px-4">
+            {apps.map((app) => (
+              <div class="flex items-center gap-2 shrink-0">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500">
+                  <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                  </svg>
+                </div>
+                <span class="text-xs md:text-sm font-medium text-zinc-500 whitespace-nowrap">{app}</span>
+              </div>
+            ))}
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div class="flex items-center gap-8 md:gap-12 px-4">
+            {apps.map((app) => (
+              <div class="flex items-center gap-2 shrink-0">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500">
+                  <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                  </svg>
+                </div>
+                <span class="text-xs md:text-sm font-medium text-zinc-500 whitespace-nowrap">{app}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -115,7 +168,7 @@
 </section>
 
 <style>
-  /* Grid lines animation - Enhanced */
+  /* Grid lines animation */
   .grid-line-h {
     animation: pulse-h 4s ease-in-out infinite;
   }
@@ -146,34 +199,56 @@
     }
   }
 
+  /* Scroll animation for logos */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const counter = document.getElementById('percent-counter');
-    const rotatingWord = document.getElementById('rotating-word');
-    const words = ['CRM', 'Notion', 'boîte mail', 'facturation', 'prospection', 'onboarding', 'reporting'];
+  document.addEventListener("DOMContentLoaded", () => {
+    const counter = document.getElementById("percent-counter");
+    const rotatingWord = document.getElementById("rotating-word");
+    const words = [
+      "CRM",
+      "Notion",
+      "boîte mail",
+      "facturation",
+      "prospection",
+      "onboarding",
+      "reporting",
+    ];
     let wordIndex = 0;
     const counterDuration = 1500;
 
-    // Setup rotating word styles
     if (rotatingWord) {
-      rotatingWord.style.transition = 'opacity 0.2s ease-out, transform 0.2s ease-out';
-      rotatingWord.style.display = 'inline-block';
-      rotatingWord.style.transform = 'translateY(8px)';
+      rotatingWord.style.transition = "opacity 0.2s ease-out, transform 0.2s ease-out";
+      rotatingWord.style.display = "inline-block";
+      rotatingWord.style.transform = "translateY(8px)";
     }
 
-    // Start both animations immediately
     const startTime = performance.now();
 
-    // Counter: linear 0 to 95 in 1.5s
     const updateCounter = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / counterDuration, 1);
       const currentValue = Math.round(progress * 95);
 
       if (counter) {
-        counter.textContent = currentValue + '%';
+        counter.textContent = currentValue + "%";
       }
 
       if (progress < 1) {
@@ -181,40 +256,32 @@
       }
     };
 
-    // First word appears with fade-in (from empty)
     const showFirstWord = () => {
       if (rotatingWord) {
         rotatingWord.textContent = words[0];
-        rotatingWord.style.opacity = '1';
-        rotatingWord.style.transform = 'translateY(0)';
+        rotatingWord.style.opacity = "1";
+        rotatingWord.style.transform = "translateY(0)";
       }
     };
 
-    // Rotate to next word
     const rotateWord = () => {
       if (!rotatingWord) return;
 
-      rotatingWord.style.opacity = '0';
-      rotatingWord.style.transform = 'translateY(-8px)';
+      rotatingWord.style.opacity = "0";
+      rotatingWord.style.transform = "translateY(-8px)";
 
       setTimeout(() => {
         wordIndex = (wordIndex + 1) % words.length;
         rotatingWord.textContent = words[wordIndex];
-        rotatingWord.style.opacity = '1';
-        rotatingWord.style.transform = 'translateY(0)';
+        rotatingWord.style.opacity = "1";
+        rotatingWord.style.transform = "translateY(0)";
       }, 150);
     };
 
-    // Launch sequence
     requestAnimationFrame(updateCounter);
-
-    // First word appears at 150ms
     setTimeout(showFirstWord, 150);
-
-    // Second word when counter hits 95% (at 1500ms)
     setTimeout(() => {
       rotateWord();
-      // Then rotate every 2s
       setInterval(rotateWord, 2000);
     }, counterDuration);
   });

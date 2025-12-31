@@ -1,63 +1,88 @@
 ---
-// Probleme section - Clean minimal cards with PAS framework
-const painPoints = [
+// Probleme section - Premium design with gradient icons
+import { Icon } from 'astro-icon/components';
+
+const problems = [
   {
-    icon: "copy",
-    title: "Copier-coller sans fin",
-    description: "Excel vers CRM, CRM vers facture, facture vers comptable... Vous faites le travail d'un robot. Et à chaque erreur, vous recommencez."
+    icon: "lucide:repeat",
+    iconBg: "from-violet-500 to-violet-600",
+    title: "Tâches répétitives",
+    description: "Copier-coller entre vos applications, relances emails, exports quotidiens, créer vos factures.. Des heures perdues chaque semaine."
   },
   {
-    icon: "unplug",
-    title: "Outils qui ne se parlent pas",
-    description: "Slack, Notion, Airtable, Stripe... Vous avez 10 outils, mais aucun ne communique. Résultat : vous êtes le lien entre tous."
+    icon: "lucide:bug",
+    iconBg: "from-rose-500 to-rose-600",
+    title: "Erreurs humaines",
+    description: "Faites 100 fois la même chose, vous ferez plus d'erreurs que Make en 1 million d'exécutions."
   },
   {
-    icon: "clock",
-    title: "10h/semaine sur du vide",
-    description: "Pendant que vous copiez des données, vos concurrents automatisent et vendent. Chaque heure perdue, c'est du CA en moins."
+    icon: "lucide:brain",
+    iconBg: "from-amber-500 to-amber-600",
+    title: "Charge mentale",
+    description: "Jongler entre 10 outils, se souvenir de tout, ne rien oublier. Cette surcharge vous épuise."
+  },
+  {
+    icon: "lucide:unplug",
+    iconBg: "from-blue-500 to-blue-600",
+    title: "Données éparpillées",
+    description: "Vos infos sont dans Notion, Sheets, votre CRM... Impossible d'avoir une vue unifiée sans tout ressaisir."
+  },
+  {
+    icon: "lucide:alarm-clock-off",
+    iconBg: "from-emerald-500 to-emerald-600",
+    title: "Oublis fréquents",
+    description: "Un lead non relancé, une facture oubliée, un client sans réponse. Ces oublis vous coûtent cher."
+  },
+  {
+    icon: "lucide:trending-down",
+    iconBg: "from-cyan-500 to-cyan-600",
+    title: "Impossible de scaler",
+    description: "Plus de clients = plus de tâches manuelles. Vous êtes bloqué dans l'opérationnel au lieu de développer."
   }
 ];
 ---
 
-<section class="py-16 md:py-20">
-  <div class="max-w-5xl mx-auto px-4 md:px-6">
-    <!-- Header - minimal -->
+<section class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <!-- Header -->
     <div class="text-center mb-12">
-      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Le constat</p>
-      <h2 class="text-2xl md:text-3xl font-semibold text-zinc-900 mb-3">
-        Vous faites le travail d'un robot
+      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Le problème</p>
+      <h2 class="text-2xl md:text-4xl font-semibold text-zinc-900 mb-4">
+        Chaque jour, vous perdez plusieurs heures<br class="hidden md:block"/> sur des tâches automatisables
       </h2>
-      <p class="text-zinc-500 max-w-lg mx-auto">
-        Et pendant ce temps, vos concurrents automatisent tout.
+      <p class="text-zinc-500 max-w-xl mx-auto">
+        Ces problèmes semblent anodins. Mais multipliés par 365 jours, ils freinent votre croissance.
       </p>
     </div>
 
-    <!-- Cards - light and minimal -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {painPoints.map((point) => (
-        <div class="group p-5 rounded-xl border border-zinc-100 hover:border-zinc-200 hover:bg-zinc-50/50 transition-all">
-          <!-- Icon -->
-          <div class="w-9 h-9 rounded-lg bg-zinc-100 flex items-center justify-center mb-4 group-hover:bg-violet-100 transition-colors">
-            {point.icon === "copy" && (
-              <svg class="w-4 h-4 text-zinc-500 group-hover:text-violet-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-              </svg>
-            )}
-            {point.icon === "unplug" && (
-              <svg class="w-4 h-4 text-zinc-500 group-hover:text-violet-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-              </svg>
-            )}
-            {point.icon === "clock" && (
-              <svg class="w-4 h-4 text-zinc-500 group-hover:text-violet-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            )}
+    <!-- Problems Grid - 6 cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {problems.map((problem) => (
+        <div class="group p-5 rounded-xl bg-zinc-50 border border-zinc-100 hover:border-zinc-200 hover:shadow-sm transition-all">
+          <!-- Icon in gradient circle -->
+          <div class="mb-4">
+            <div class={`w-10 h-10 rounded-lg bg-gradient-to-br ${problem.iconBg} flex items-center justify-center shadow-md`}>
+              <Icon name={problem.icon} class="w-5 h-5 text-white" />
+            </div>
           </div>
-          <h3 class="text-sm font-medium text-zinc-900 mb-1.5">{point.title}</h3>
-          <p class="text-sm text-zinc-500 leading-relaxed">{point.description}</p>
+
+          <!-- Title -->
+          <h3 class="text-base font-semibold text-zinc-900 mb-2">{problem.title}</h3>
+
+          <!-- Description -->
+          <p class="text-sm text-zinc-500 leading-relaxed">{problem.description}</p>
         </div>
       ))}
+    </div>
+
+    <!-- Bottom message -->
+    <div class="mt-12 text-center space-y-3">
+      <p class="text-lg md:text-xl text-zinc-600">
+        <span class="font-semibold text-zinc-900">Make automatise tout ça.</span> Sans code. Sans prise de tête.
+      </p>
+      <p class="text-base md:text-lg text-zinc-500">
+        <span class="font-medium text-zinc-700">Je vous montre comment</span> — de A à Z.
+      </p>
     </div>
   </div>
 </section>

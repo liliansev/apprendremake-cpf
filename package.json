@@ -9,7 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.6"
+    "@iconify-json/lucide": "^1.2.82",
+    "astro": "^5.16.6",
+    "astro-icon": "^1.1.5"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",

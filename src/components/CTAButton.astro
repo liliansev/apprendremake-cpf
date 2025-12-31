@@ -1,0 +1,58 @@
+---
+// CTA Button - Réutilisable avec effet bordure animée optionnel
+// variant: "light" (bouton blanc sur fond sombre) | "dark" (bouton violet sur fond clair)
+
+interface Props {
+  href: string;
+  text?: string;
+  variant?: "light" | "dark";
+  class?: string;
+  fullWidth?: boolean;
+  id?: string;
+  animated?: boolean;
+}
+
+const {
+  href,
+  text = "Rejoindre la formation",
+  variant = "light",
+  class: className = "",
+  fullWidth = false,
+  id,
+  animated = false
+} = Astro.props;
+
+const baseClasses = "group inline-flex items-center justify-center gap-2 text-sm font-semibold px-8 py-4 rounded-xl transition-all";
+
+const variantClasses = {
+  light: "bg-zinc-50 hover:bg-white text-zinc-900",
+  dark: "bg-violet-600 hover:bg-violet-700 text-white"
+};
+
+const wrapperWidth = fullWidth ? "w-full" : "w-full sm:w-auto";
+const buttonWidth = fullWidth ? "w-full" : "w-full sm:w-auto";
+const wrapperClass = animated ? "cta-border-wrap" : "";
+---
+
+<div class:list={[wrapperClass, wrapperWidth, className]}>
+  <a
+    href={href}
+    id={id}
+    class:list={[baseClasses, variantClasses[variant], buttonWidth, animated ? "cta-inner" : ""]}
+  >
+    <span>{text}</span>
+    <svg
+      class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"
+      ></path>
+    </svg>
+  </a>
+</div>
