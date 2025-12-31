@@ -1,0 +1,74 @@
+---
+// Temoignages section - Minimal quote style with specific results
+const testimonials = [
+  {
+    quote: "Avant, je passais 3h/jour à transférer des données. Aujourd'hui, tout est automatisé. J'ai récupéré 15h par semaine pour mes clients.",
+    author: "Marie D.",
+    role: "Freelance Marketing",
+    result: "+15h/semaine"
+  },
+  {
+    quote: "En 3 semaines, j'ai automatisé tout l'onboarding de mes clients. Lilian explique comme personne — pas de jargon, que du concret.",
+    author: "Thomas B.",
+    role: "Fondateur SaaS",
+    result: "Onboarding 100% auto"
+  },
+  {
+    quote: "J'ai lancé mon activité de consultant Make grâce à cette formation. ROI en moins de 2 mois avec mes premiers clients.",
+    author: "Sophie M.",
+    role: "Consultante Automation",
+    result: "ROI < 2 mois"
+  }
+];
+---
+
+<section class="py-16 md:py-20 bg-zinc-50/50">
+  <div class="max-w-5xl mx-auto px-4 md:px-6">
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Résultats concrets</p>
+      <h2 class="text-2xl md:text-3xl font-semibold text-zinc-900">
+        Ils automatisent, vous pouvez aussi
+      </h2>
+    </div>
+
+    <!-- Testimonials - minimal cards with results -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {testimonials.map((t) => (
+        <div class="p-5 rounded-xl bg-white border border-zinc-100 relative">
+          <!-- Result badge -->
+          <div class="absolute -top-2 -right-2">
+            <span class="inline-block text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">
+              {t.result}
+            </span>
+          </div>
+
+          <!-- Stars -->
+          <div class="flex gap-0.5 mb-3">
+            {[1, 2, 3, 4, 5].map(() => (
+              <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <p class="text-sm text-zinc-600 leading-relaxed mb-4">
+            "{t.quote}"
+          </p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-zinc-100 flex items-center justify-center">
+              <span class="text-[10px] font-medium text-zinc-500">{t.author.split(' ')[0][0]}{t.author.split(' ')[1][0]}</span>
+            </div>
+            <div>
+              <div class="text-xs font-medium text-zinc-900">{t.author}</div>
+              <div class="text-[10px] text-zinc-500">{t.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

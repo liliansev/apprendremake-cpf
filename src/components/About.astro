@@ -1,0 +1,80 @@
+---
+// About section - Authentic story
+const credentials = [
+  { value: "2021", label: "Sur Make depuis" },
+  { value: "1er", label: "Français certifié Make" },
+  { value: "150+", label: "Projets clients" }
+];
+---
+
+<section class="py-16 md:py-20 bg-zinc-50/50">
+  <div class="max-w-5xl mx-auto px-4 md:px-6">
+    <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+      <!-- Image -->
+      <div class="lg:col-span-2">
+        <div class="aspect-[4/5] max-w-xs mx-auto lg:mx-0 rounded-2xl bg-gradient-to-br from-zinc-100 to-zinc-50 overflow-hidden">
+          <div class="w-full h-full flex items-center justify-center">
+            <div class="text-center p-6">
+              <div class="w-20 h-20 mx-auto rounded-full bg-white shadow-sm flex items-center justify-center mb-3">
+                <span class="text-2xl font-semibold text-zinc-400">LS</span>
+              </div>
+              <p class="text-xs text-zinc-400">Photo Lilian</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="lg:col-span-3">
+        <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Votre formateur</p>
+        <h2 class="text-2xl md:text-3xl font-semibold text-zinc-900 mb-4">
+          J'ai appris Make à la dure.<br class="hidden sm:block" />
+          <span class="text-zinc-400">Vous n'aurez pas à le faire.</span>
+        </h2>
+
+        <p class="text-zinc-600 mb-4 leading-relaxed">
+          En 2021, Make s'appelait encore Integromat. Aucune formation, aucun contenu en français.
+          J'ai passé des nuits blanches à apprendre seul, puis j'ai aidé la communauté NoCodeFrance pendant des années en répondant à toutes les questions.
+        </p>
+
+        <p class="text-zinc-500 text-sm mb-6 leading-relaxed">
+          En 2022, j'ai rejoint JellySmack où j'ai travaillé avec d'autres experts Make.
+          En 2023, j'ai monté ma boîte — tout automatisé avec Make, elle tourne encore aujourd'hui.
+          <span class="text-zinc-700 font-medium">Cette formation, c'est tout ce que j'aurais voulu avoir quand j'ai commencé.</span>
+        </p>
+
+        <!-- Credentials -->
+        <div class="flex flex-wrap gap-6 mb-6">
+          {credentials.map((item) => (
+            <div>
+              <div class="text-2xl font-semibold text-zinc-900">{item.value}</div>
+              <div class="text-xs text-zinc-500">{item.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="inline-flex items-center gap-1.5 text-xs text-zinc-500 bg-white border border-zinc-100 px-3 py-1.5 rounded-full">
+            <svg class="w-3.5 h-3.5 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            Make Partner certifié
+          </span>
+          <span class="inline-flex items-center gap-1.5 text-xs text-zinc-500 bg-white border border-zinc-100 px-3 py-1.5 rounded-full">
+            <svg class="w-3.5 h-3.5 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            Ex-JellySmack
+          </span>
+          <span class="inline-flex items-center gap-1.5 text-xs text-zinc-500 bg-white border border-zinc-100 px-3 py-1.5 rounded-full">
+            <svg class="w-3.5 h-3.5 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            Entrepreneur
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
