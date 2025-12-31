@@ -4,7 +4,9 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Apprendre Make - Formation" } = Astro.props;
+const { title, description = "Formation Make complète : de zéro à autonome en 5 semaines. + de 90 leçons pratiques, projets terrain, formateur certifié Make Partner. 499€ HT." } = Astro.props;
+const siteUrl = "https://apprendremake.com";
+const ogImage = `${siteUrl}/og-image.png`;
 ---
 
 <!doctype html>
@@ -14,13 +16,32 @@ const { title, description = "Apprendre Make - Formation" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={siteUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <title>{title}</title>
   </head>
   <body class="bg-white text-zinc-900 antialiased">
