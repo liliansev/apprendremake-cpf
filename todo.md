@@ -10,6 +10,7 @@
 ### Section Problème
 - [x] Titres plus percutants et viscéraux
 - [x] Hover animations ajoutées (scale icons, translateY cards)
+- [] 3 cartes maximum 
 
 ### Section À qui s'adresse (Cible)
 - [x] Nouvelle section créée avec 3 profils
