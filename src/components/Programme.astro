@@ -1,6 +1,5 @@
 ---
 // Programme section - Curriculum grouped by learning phases
-import CTAButton from "./CTAButton.astro";
 import { Icon } from 'astro-icon/components';
 
 // Grouped by learning phases
@@ -66,16 +65,24 @@ const phases = [
   }
 ];
 
-const scenarios = [
-  { title: "CRM automatisé", subtitle: "Notion + Gmail + Calendly" },
-  { title: "Facturation auto", subtitle: "Stripe → Notion → Email" },
-  { title: "Onboarding client", subtitle: "Typeform → Notion → Slack" },
-  { title: "Reporting automatique", subtitle: "Sheets → Slack" }
-];
-
-const exclusiveBonus = [
-  { icon: "lucide:briefcase", title: "Projets clients réels", desc: "Coulisses d'automatisations livrées pour de vrais clients" },
-  { icon: "lucide:bot", title: "Make + IA", desc: "Intègre ChatGPT et Claude dans tes scénarios" }
+// Bonus modules - different color (rose/pink) to stand out
+const bonusModules = [
+  {
+    id: "ia",
+    title: "Make + Intelligence Artificielle",
+    subtitle: "Automatise avec l'IA",
+    icon: "lucide:sparkles",
+    color: "rose",
+    highlights: ["Intégrer ChatGPT & Claude dans tes scénarios", "Analyser des documents automatiquement", "Générer du contenu à la volée"]
+  },
+  {
+    id: "experience",
+    title: "Projets Clients & Expérience Terrain",
+    subtitle: "Cas réels d'entrepreneur",
+    icon: "lucide:briefcase",
+    color: "cyan",
+    highlights: ["Coulisses d'automatisations livrées", "Erreurs à éviter en clientèle", "Stratégies de pricing & vente"]
+  }
 ];
 
 const colorClasses: Record<string, { bg: string; text: string; border: string; gradient: string; iconBg: string }> = {
@@ -106,6 +113,20 @@ const colorClasses: Record<string, { bg: string; text: string; border: string; g
     border: "border-amber-200",
     gradient: "from-amber-500 to-amber-600",
     iconBg: "bg-amber-100"
+  },
+  rose: {
+    bg: "bg-rose-50",
+    text: "text-rose-600",
+    border: "border-rose-200",
+    gradient: "from-rose-500 to-pink-500",
+    iconBg: "bg-rose-100"
+  },
+  cyan: {
+    bg: "bg-cyan-50",
+    text: "text-cyan-600",
+    border: "border-cyan-200",
+    gradient: "from-cyan-500 to-teal-500",
+    iconBg: "bg-cyan-100"
   }
 };
 
@@ -114,7 +135,7 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
 ---
 
 <section id="programme" class="py-16 md:py-24 bg-gradient-to-b from-white to-zinc-50/80">
-  <div class="max-w-6xl mx-auto px-4 md:px-6">
+  <div class="max-w-3xl mx-auto px-4 md:px-6">
     <!-- Header -->
     <div class="text-center mb-12 md:mb-16">
       <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Programme complet</p>
@@ -142,137 +163,102 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+    <!-- Phases -->
+    <div class="space-y-4 mb-8">
+      {phases.map((phase, index) => (
+        <details class="group rounded-2xl border border-zinc-200 bg-white overflow-hidden hover:border-zinc-300 hover:shadow-sm transition-all">
+          <summary class="flex items-start gap-4 p-5 cursor-pointer list-none select-none">
+            <!-- Phase icon -->
+            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[phase.color].gradient} flex items-center justify-center shrink-0 shadow-sm`}>
+              <Icon name={phase.icon} class="w-6 h-6 text-white" />
+            </div>
 
-      <!-- LEFT: Learning Phases (2 cols) -->
-      <div class="lg:col-span-2 space-y-4">
-        {phases.map((phase, index) => (
-          <details class="group rounded-2xl border border-zinc-200 bg-white overflow-hidden hover:border-zinc-300 hover:shadow-sm transition-all">
-            <summary class="flex items-start gap-4 p-5 cursor-pointer list-none select-none">
-              <!-- Phase icon -->
-              <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[phase.color].gradient} flex items-center justify-center shrink-0 shadow-sm`}>
-                <Icon name={phase.icon} class="w-6 h-6 text-white" />
+            <!-- Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <span class={`text-[10px] font-bold uppercase tracking-wider ${colorClasses[phase.color].text}`}>
+                  Phase {index + 1}
+                </span>
+                <span class="text-zinc-300">·</span>
+                <span class="text-xs text-zinc-400">{phase.totalLessons} leçons</span>
+              </div>
+              <h3 class="text-base font-semibold text-zinc-900 mb-0.5">{phase.title}</h3>
+              <p class="text-sm text-zinc-500">{phase.subtitle}</p>
+            </div>
+
+            <!-- Arrow -->
+            <Icon name="lucide:chevron-down" class="w-5 h-5 text-zinc-400 transition-transform group-open:rotate-180 shrink-0 mt-1" />
+          </summary>
+
+          <!-- Expanded content -->
+          <div class="px-5 pb-5">
+            <div class={`rounded-xl ${colorClasses[phase.color].bg} p-4`}>
+              <!-- Chapters list -->
+              <div class="mb-4">
+                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2">Chapitres inclus</p>
+                <div class="flex flex-wrap gap-2">
+                  {phase.chapters.map((chapter) => (
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-white text-xs text-zinc-700">
+                      <span class={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${colorClasses[phase.color].gradient}`}></span>
+                      {chapter.title}
+                      <span class="text-zinc-400">({chapter.lessons})</span>
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <!-- Content -->
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class={`text-[10px] font-bold uppercase tracking-wider ${colorClasses[phase.color].text}`}>
-                    Phase {index + 1}
-                  </span>
-                  <span class="text-zinc-300">·</span>
-                  <span class="text-xs text-zinc-400">{phase.totalLessons} leçons</span>
-                </div>
-                <h3 class="text-base font-semibold text-zinc-900 mb-0.5">{phase.title}</h3>
-                <p class="text-sm text-zinc-500">{phase.subtitle}</p>
-              </div>
-
-              <!-- Arrow -->
-              <Icon name="lucide:chevron-down" class="w-5 h-5 text-zinc-400 transition-transform group-open:rotate-180 shrink-0 mt-1" />
-            </summary>
-
-            <!-- Expanded content -->
-            <div class="px-5 pb-5">
-              <div class={`rounded-xl ${colorClasses[phase.color].bg} p-4`}>
-                <!-- Chapters list -->
-                <div class="mb-4">
-                  <p class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2">Chapitres inclus</p>
-                  <div class="flex flex-wrap gap-2">
-                    {phase.chapters.map((chapter) => (
-                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-white text-xs text-zinc-700">
-                        <span class={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${colorClasses[phase.color].gradient}`}></span>
-                        {chapter.title}
-                        <span class="text-zinc-400">({chapter.lessons})</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <!-- Skills -->
-                <div>
-                  <p class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2">Tu sauras</p>
-                  <ul class="space-y-1.5">
-                    {phase.skills.map((skill) => (
-                      <li class="flex items-center gap-2 text-sm text-zinc-700">
-                        <Icon name="lucide:check" class={`w-4 h-4 ${colorClasses[phase.color].text} shrink-0`} />
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <!-- Skills -->
+              <div>
+                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2">Tu sauras</p>
+                <ul class="space-y-1.5">
+                  {phase.skills.map((skill) => (
+                    <li class="flex items-center gap-2 text-sm text-zinc-700">
+                      <Icon name="lucide:check" class={`w-4 h-4 ${colorClasses[phase.color].text} shrink-0`} />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </details>
-        ))}
-      </div>
+          </div>
+        </details>
+      ))}
+    </div>
 
-      <!-- RIGHT: Sticky Sidebar -->
-      <div class="lg:sticky lg:top-24 space-y-5">
+    <!-- Bonus Modules -->
+    <div class="space-y-4">
+      <p class="text-xs font-medium text-zinc-400 uppercase tracking-wider text-center mb-2">+ Bonus exclusifs</p>
 
-        <!-- Scenarios -->
-        <div class="rounded-2xl border border-zinc-200 bg-white p-5">
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center">
-              <Icon name="lucide:target" class="w-4 h-4 text-violet-600" />
+      {bonusModules.map((bonus) => (
+        <div class={`rounded-2xl border ${colorClasses[bonus.color].border} ${colorClasses[bonus.color].bg} p-5`}>
+          <div class="flex items-start gap-4">
+            <!-- Bonus icon -->
+            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[bonus.color].gradient} flex items-center justify-center shrink-0 shadow-sm`}>
+              <Icon name={bonus.icon} class="w-6 h-6 text-white" />
             </div>
-            <h3 class="text-sm font-semibold text-zinc-900">Tu sauras créer</h3>
-          </div>
 
-          <div class="space-y-2.5">
-            {scenarios.map((scenario) => (
-              <div class="flex items-center gap-3 p-2.5 rounded-xl bg-zinc-50 hover:bg-zinc-100 transition-colors">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-100 to-violet-50 flex items-center justify-center shrink-0">
-                  <Icon name="lucide:workflow" class="w-4 h-4 text-violet-500" />
-                </div>
-                <div class="min-w-0">
-                  <p class="text-xs font-medium text-zinc-900 truncate">{scenario.title}</p>
-                  <p class="text-[10px] text-violet-600">{scenario.subtitle}</p>
-                </div>
+            <!-- Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <span class={`text-[10px] font-bold uppercase tracking-wider ${colorClasses[bonus.color].text}`}>
+                  Bonus
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
+              <h3 class="text-base font-semibold text-zinc-900 mb-2">{bonus.title}</h3>
 
-        <!-- Bonus -->
-        <div class="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 p-5">
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
-              <Icon name="lucide:gift" class="w-4 h-4 text-amber-600" />
+              <!-- Highlights -->
+              <ul class="space-y-1">
+                {bonus.highlights.map((highlight) => (
+                  <li class="flex items-center gap-2 text-sm text-zinc-600">
+                    <Icon name="lucide:check" class={`w-4 h-4 ${colorClasses[bonus.color].text} shrink-0`} />
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h3 class="text-sm font-semibold text-zinc-900">Bonus exclusifs</h3>
-          </div>
-
-          <div class="space-y-3">
-            {exclusiveBonus.map((bonus) => (
-              <div class="flex gap-3">
-                <div class="w-9 h-9 rounded-lg bg-white/80 border border-amber-200/50 flex items-center justify-center shrink-0">
-                  <Icon name={bonus.icon} class="w-4 h-4 text-amber-600" />
-                </div>
-                <div>
-                  <h4 class="text-xs font-semibold text-zinc-900">{bonus.title}</h4>
-                  <p class="text-[11px] text-zinc-600 leading-relaxed">{bonus.desc}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
-
-        <!-- CTA inline -->
-        <div class="flex items-center gap-3 p-4 rounded-2xl bg-zinc-900">
-          <div class="flex-1 min-w-0">
-            <p class="text-white text-sm font-medium">Prêt à automatiser ?</p>
-            <p class="text-zinc-400 text-xs">{totalLessons}+ leçons · 499€/an</p>
-          </div>
-          <a
-            href="#pricing"
-            class="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white hover:bg-zinc-100 transition-colors"
-          >
-            <Icon name="lucide:arrow-down" class="w-5 h-5 text-zinc-900" />
-          </a>
-        </div>
-
-      </div>
+      ))}
     </div>
   </div>
 </section>
