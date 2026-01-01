@@ -1,0 +1,171 @@
+---
+// Transformation section - "The Gap" - Before/After emotional journey
+import { Icon } from 'astro-icon/components';
+
+const transformations = [
+  {
+    before: {
+      title: "Le labyrinthe YouTube",
+      description: "4 heures perdues à chercher une solution qui ne correspond pas exactement à ton cas."
+    },
+    after: {
+      title: "La méthode structurée",
+      description: "Tu as une roadmap claire. Tu ne cherches plus, tu appliques."
+    }
+  },
+  {
+    before: {
+      title: "L'enfer du débuggage",
+      description: "Un scénario qui s'arrête, une erreur 400 inconnue... et personne pour t'aider."
+    },
+    after: {
+      title: "Le réflexe chirurgical",
+      description: "Tu comprends les messages d'erreur. Tu débugues en 2 minutes chrono."
+    }
+  },
+  {
+    before: {
+      title: "La taxe \"Expert\"",
+      description: "Devoir payer un consultant 100€/h dès que tu veux ajouter une étape complexe."
+    },
+    after: {
+      title: "L'autonomie totale",
+      description: "Tu es ton propre expert. Tu construis des systèmes avancés sans aide extérieure."
+    }
+  },
+  {
+    before: {
+      title: "La boule au ventre",
+      description: "La peur de \"tout casser\" dès que tu touches à un module actif."
+    },
+    after: {
+      title: "Le plaisir de créer",
+      description: "Construire sur Make devient un jeu de construction gratifiant et serein."
+    }
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <!-- Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">La transformation</p>
+      <h2 class="text-2xl md:text-4xl font-semibold text-zinc-900 mb-4">
+        Arrêtez de subir Make.<br class="hidden sm:block" />
+        <span class="text-violet-600">Commencez à dompter l'outil.</span>
+      </h2>
+      <p class="text-zinc-500 max-w-xl mx-auto">
+        Ce n'est pas juste une formation. C'est un changement d'état d'esprit.
+      </p>
+    </div>
+
+    <!-- Desktop: Split screen -->
+    <div class="hidden md:grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden shadow-xl">
+      <!-- Before column -->
+      <div class="bg-zinc-900 p-8 lg:p-10">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+            <Icon name="lucide:x" class="w-5 h-5 text-red-400" />
+          </div>
+          <div>
+            <p class="text-xs font-medium text-red-400 uppercase tracking-wider">Avant</p>
+            <p class="text-lg font-semibold text-white">Seul face à la machine</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          {transformations.map((item) => (
+            <div class="group">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="lucide:frown" class="w-3.5 h-3.5 text-red-400" />
+                </div>
+                <div>
+                  <h4 class="text-base font-medium text-white mb-1">{item.before.title}</h4>
+                  <p class="text-sm text-zinc-400 leading-relaxed">{item.before.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- After column -->
+      <div class="bg-gradient-to-br from-violet-600 to-violet-700 p-8 lg:p-10">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+            <Icon name="lucide:check" class="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <p class="text-xs font-medium text-violet-200 uppercase tracking-wider">Après</p>
+            <p class="text-lg font-semibold text-white">Le mindset d'Expert</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          {transformations.map((item) => (
+            <div class="group">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="lucide:smile" class="w-3.5 h-3.5 text-white" />
+                </div>
+                <div>
+                  <h4 class="text-base font-medium text-white mb-1">{item.after.title}</h4>
+                  <p class="text-sm text-violet-100 leading-relaxed">{item.after.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile: Stacked cards -->
+    <div class="md:hidden space-y-4">
+      {transformations.map((item) => (
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <!-- Before -->
+          <div class="bg-zinc-900 p-4">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name="lucide:x" class="w-3.5 h-3.5 text-red-400" />
+              </div>
+              <div>
+                <p class="text-[10px] font-medium text-red-400 uppercase tracking-wider mb-0.5">Avant</p>
+                <h4 class="text-sm font-medium text-white mb-1">{item.before.title}</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">{item.before.description}</p>
+              </div>
+            </div>
+          </div>
+          <!-- Arrow -->
+          <div class="bg-zinc-800 py-1 flex justify-center">
+            <Icon name="lucide:arrow-down" class="w-4 h-4 text-violet-400" />
+          </div>
+          <!-- After -->
+          <div class="bg-gradient-to-br from-violet-600 to-violet-700 p-4">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name="lucide:check" class="w-3.5 h-3.5 text-white" />
+              </div>
+              <div>
+                <p class="text-[10px] font-medium text-violet-200 uppercase tracking-wider mb-0.5">Après</p>
+                <h4 class="text-sm font-medium text-white mb-1">{item.after.title}</h4>
+                <p class="text-xs text-violet-100 leading-relaxed">{item.after.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom hook -->
+    <div class="mt-10 text-center">
+      <p class="text-lg text-zinc-600">
+        <span class="font-semibold text-zinc-900">Tu ne paies pas 90 leçons.</span>
+        <br class="sm:hidden" />
+        Tu investis dans <span class="text-violet-600 font-medium">la fin de la boule au ventre</span>.
+      </p>
+    </div>
+  </div>
+</section>

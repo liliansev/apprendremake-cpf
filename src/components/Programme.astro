@@ -8,6 +8,7 @@ const phases = [
     id: "fondamentaux",
     title: "Fondamentaux",
     subtitle: "Maîtrise les bases de Make",
+    result: "Ton premier robot tourne en 1h",
     icon: "lucide:rocket",
     color: "violet",
     chapters: [
@@ -21,6 +22,7 @@ const phases = [
     id: "formules",
     title: "Formules & Données",
     subtitle: "Manipule les données comme un pro",
+    result: "Tu maîtrises 80% des formules Make",
     icon: "lucide:calculator",
     color: "blue",
     chapters: [
@@ -35,6 +37,7 @@ const phases = [
     id: "integrations",
     title: "Intégrations",
     subtitle: "Connecte tous tes outils",
+    result: "Tu connectes n'importe quel outil",
     icon: "lucide:plug",
     color: "emerald",
     chapters: [
@@ -49,6 +52,7 @@ const phases = [
     id: "avance",
     title: "Niveau Avancé",
     subtitle: "Deviens un expert Make",
+    result: "Tu es autonome sur n'importe quel projet",
     icon: "lucide:trophy",
     color: "amber",
     chapters: [
@@ -166,10 +170,10 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
     <!-- Phases -->
     <div class="space-y-4 mb-8">
       {phases.map((phase, index) => (
-        <details class="group rounded-2xl border border-zinc-200 bg-white overflow-hidden hover:border-zinc-300 hover:shadow-sm transition-all">
+        <details class="group rounded-2xl border border-zinc-200 bg-white overflow-hidden hover:border-zinc-300 hover:shadow-md transition-all duration-200">
           <summary class="flex items-start gap-4 p-5 cursor-pointer list-none select-none">
             <!-- Phase icon -->
-            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[phase.color].gradient} flex items-center justify-center shrink-0 shadow-sm`}>
+            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[phase.color].gradient} flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 group-hover:shadow-lg transition-all duration-200`}>
               <Icon name={phase.icon} class="w-6 h-6 text-white" />
             </div>
 
@@ -184,6 +188,7 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
               </div>
               <h3 class="text-base font-semibold text-zinc-900 mb-0.5">{phase.title}</h3>
               <p class="text-sm text-zinc-500">{phase.subtitle}</p>
+              <p class={`text-xs font-medium ${colorClasses[phase.color].text} mt-1`}>→ {phase.result}</p>
             </div>
 
             <!-- Arrow -->
@@ -230,10 +235,10 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
       <p class="text-xs font-medium text-zinc-400 uppercase tracking-wider text-center mb-2">+ Bonus exclusifs</p>
 
       {bonusModules.map((bonus) => (
-        <div class={`rounded-2xl border ${colorClasses[bonus.color].border} ${colorClasses[bonus.color].bg} p-5`}>
+        <div class={`group rounded-2xl border ${colorClasses[bonus.color].border} ${colorClasses[bonus.color].bg} p-5 hover:shadow-md transition-all duration-200`}>
           <div class="flex items-start gap-4">
             <!-- Bonus icon -->
-            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[bonus.color].gradient} flex items-center justify-center shrink-0 shadow-sm`}>
+            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorClasses[bonus.color].gradient} flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 group-hover:shadow-lg transition-all duration-200`}>
               <Icon name={bonus.icon} class="w-6 h-6 text-white" />
             </div>
 

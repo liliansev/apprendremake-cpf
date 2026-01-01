@@ -2,7 +2,7 @@
 // About section - Authentic story
 const credentials = [
   { value: "4 ans", label: "d'expérience Make" },
-  { value: "1er", label: "Français certifié Make" },
+  { value: "🏆", label: "1er certifié FR (2022)" },
   { value: "150+", label: "Projets clients" }
 ];
 ---
@@ -10,14 +10,35 @@ const credentials = [
 <section class="py-16 md:py-20 bg-zinc-50/50">
   <div class="max-w-5xl mx-auto px-4 md:px-6">
     <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
-      <!-- Image -->
+      <!-- Image + Logos -->
       <div class="lg:col-span-2">
-        <div class="aspect-[4/5] max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden">
+        <div class="aspect-[4/5] max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden mb-4">
           <img
             src="/images/lilian.jpg"
             alt="Lilian au No Code Summit"
             class="w-full h-full object-cover object-top"
           />
+        </div>
+        <!-- Certifications officielles Make -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 max-w-xs mx-auto lg:mx-0">
+          <span class="inline-flex items-center gap-2 text-xs font-medium text-zinc-700 bg-white border border-zinc-200 px-3 py-2 rounded-lg shadow-sm">
+            <svg class="w-4 h-4 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            Make Partner
+          </span>
+          <span class="inline-flex items-center gap-2 text-xs font-medium text-zinc-700 bg-white border border-zinc-200 px-3 py-2 rounded-lg shadow-sm">
+            <svg class="w-4 h-4 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            Make Trainer
+          </span>
+          <span class="inline-flex items-center gap-2 text-xs font-medium text-zinc-700 bg-white border border-zinc-200 px-3 py-2 rounded-lg shadow-sm">
+            <svg class="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            </svg>
+            Certif. 4 & 5
+          </span>
         </div>
       </div>
 
@@ -37,7 +58,7 @@ const credentials = [
         <p class="text-zinc-500 text-sm mb-6 leading-relaxed">
           En 2022, j'ai rejoint JellySmack où j'ai travaillé avec d'autres experts Make.
           En 2023, j'ai monté ma boîte — tout automatisé avec Make, elle tourne encore aujourd'hui.
-          <span class="text-zinc-700 font-medium">Cette formation, c'est tout ce que j'aurais voulu avoir quand j'ai commencé.</span>
+          <span class="text-zinc-700 font-medium">J'ai passé toutes les certifications Make pour que vous n'ayez pas à passer vos nuits sur la documentation.</span>
         </p>
 
         <!-- Credentials -->
@@ -50,27 +71,6 @@ const credentials = [
           ))}
         </div>
 
-        <!-- Trust badges -->
-        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-          <span class="inline-flex items-center gap-1.5 text-xs text-zinc-500 bg-white border border-zinc-100 px-3 py-1.5 rounded-full">
-            <svg class="w-3.5 h-3.5 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            Make Partner certifié
-          </span>
-          <span class="inline-flex items-center gap-1.5 text-xs text-zinc-500 bg-white border border-zinc-100 px-3 py-1.5 rounded-full">
-            <svg class="w-3.5 h-3.5 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            Ex-JellySmack
-          </span>
-          <span class="inline-flex items-center gap-1.5 text-xs text-zinc-500 bg-white border border-zinc-100 px-3 py-1.5 rounded-full">
-            <svg class="w-3.5 h-3.5 text-violet-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            Entrepreneur
-          </span>
-        </div>
       </div>
     </div>
   </div>

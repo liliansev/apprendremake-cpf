@@ -1,0 +1,68 @@
+---
+// Cible section - À qui s'adresse cette formation
+import { Icon } from 'astro-icon/components';
+
+const targets = [
+  {
+    icon: "lucide:user",
+    iconBg: "from-violet-500 to-violet-600",
+    title: "Solopreneurs & Freelances",
+    benefit: "Gain de temps",
+    description: "Récupérez 10h+ par semaine en automatisant vos tâches admin, facturation, et relation client."
+  },
+  {
+    icon: "lucide:briefcase",
+    iconBg: "from-blue-500 to-blue-600",
+    title: "Salariés Ops & Assistants",
+    benefit: "Montée en compétences",
+    description: "Devenez indispensable en maîtrisant l'outil d'automatisation le plus demandé du marché."
+  },
+  {
+    icon: "lucide:building-2",
+    iconBg: "from-emerald-500 to-emerald-600",
+    title: "Agences & Équipes",
+    benefit: "Scalabilité",
+    description: "Automatisez vos process internes pour gérer plus de clients sans recruter."
+  }
+];
+---
+
+<section class="py-16 md:py-20 bg-zinc-50">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Pour qui ?</p>
+      <h2 class="text-2xl md:text-4xl font-semibold text-zinc-900 mb-4">
+        À qui s'adresse cette formation ?
+      </h2>
+      <p class="text-zinc-500 max-w-xl mx-auto">
+        Que vous soyez seul ou en équipe, Make s'adapte à vos besoins.
+      </p>
+    </div>
+
+    <!-- Targets Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {targets.map((target) => (
+        <div class="group p-6 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+          <!-- Icon -->
+          <div class="mb-5">
+            <div class={`w-14 h-14 rounded-xl bg-gradient-to-br ${target.iconBg} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200`}>
+              <Icon name={target.icon} class="w-7 h-7 text-white" />
+            </div>
+          </div>
+
+          <!-- Benefit badge -->
+          <span class="inline-flex items-center text-xs font-medium text-violet-600 bg-violet-50 px-2.5 py-1 rounded-full mb-3">
+            {target.benefit}
+          </span>
+
+          <!-- Title -->
+          <h3 class="text-lg font-semibold text-zinc-900 mb-2">{target.title}</h3>
+
+          <!-- Description -->
+          <p class="text-sm text-zinc-500 leading-relaxed">{target.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
