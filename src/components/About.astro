@@ -7,14 +7,14 @@ const timeline = [
     year: "2021",
     title: "L'époque du \"système D\"",
     subtitle: "Integromat",
-    description: "Quand j'ai commencé, Make s'appelait encore Integromat. Aucune formation, aucun tutoriel, rien en français. Des nuits entières à déchiffrer la documentation et tester des scénarios qui cassaient.",
+    description: "Quand j'ai commencé, Make s'appelait encore Integromat. Aucune formation, aucun tutoriel, rien en français. Des nuits entières à déchiffrer la documentation.",
     highlight: "J'ai appris dans la douleur, seul face à l'outil."
   },
   {
     year: "2022",
     title: "L'immersion dans l'élite",
     subtitle: "JellySmack",
-    description: "Je rejoins JellySmack et intègre une équipe d'experts mondiaux. Je découvre l'automatisation à échelle industrielle. Je ne bidouille plus : je bâtis des systèmes robustes.",
+    description: "Je rejoins JellySmack et intègre une équipe d'experts mondiaux. Je découvre l'automatisation à échelle industrielle.",
     highlight: "Je deviens le 1er Français certifié Make Partner & Trainer."
   },
   {
@@ -26,10 +26,25 @@ const timeline = [
   },
   {
     year: "2024",
-    title: "Le transfert de pouvoir",
-    subtitle: "Cette formation",
-    description: "150+ projets clients. Certifications 4 & 5 (les plus hautes de Make). J'ai condensé 4 années d'erreurs, de tests et de réussites dans cette méthode.",
-    highlight: "Maintenant, c'est à votre tour."
+    title: "150+ projets livrés",
+    subtitle: "Certifications 4 & 5",
+    description: "J'obtiens les certifications les plus hautes de Make. Je condense 4 années d'erreurs, de tests et de réussites.",
+    highlight: "Cette formation naît de tout ce parcours."
+  },
+  {
+    year: "2025",
+    title: "Le lancement officiel",
+    subtitle: "Apprendre Make",
+    description: "La méthode est enfin accessible à tous. Des dizaines d'élèves transforment déjà leur quotidien.",
+    highlight: "La communauté grandit chaque jour."
+  },
+  {
+    year: "2026",
+    title: "Votre chapitre commence",
+    subtitle: "Votre histoire",
+    description: "Cette timeline ne s'arrête pas là. La prochaine ligne, c'est vous qui l'écrivez.",
+    highlight: "Écrivez votre propre success story sur Make.",
+    isYou: true
   }
 ];
 ---
@@ -86,24 +101,24 @@ const timeline = [
           <!-- Ligne verticale -->
           <div class="absolute left-[23px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-violet-500 via-violet-400 to-violet-300 hidden md:block"></div>
 
-          <div class="space-y-6">
+          <div class="space-y-4 md:space-y-6">
             {timeline.map((item) => (
-              <div class="relative flex gap-4 md:gap-6">
-                <!-- Year badge noir -->
-                <div class="shrink-0 w-12 h-12 rounded-xl bg-zinc-900 text-white flex items-center justify-center font-bold text-sm z-10">
-                  {item.year}
+              <div class={`group relative flex gap-4 md:gap-6 p-3 -mx-3 rounded-xl transition-all duration-200 cursor-default ${item.isYou ? 'bg-violet-50 hover:bg-violet-100/80' : 'hover:bg-white/60 hover:shadow-sm'}`}>
+                <!-- Year badge -->
+                <div class={`shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-xs md:text-sm z-10 transition-transform duration-200 group-hover:scale-105 ${item.isYou ? 'bg-violet-600 text-white' : 'bg-zinc-900 text-white'}`}>
+                  {item.isYou ? '→' : item.year}
                 </div>
 
-                <!-- Content sans card -->
-                <div class="flex-1 pb-2">
-                  <div class="flex flex-wrap items-baseline gap-2 mb-1">
-                    <h3 class="text-base font-semibold text-zinc-900">{item.title}</h3>
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                    <h3 class={`text-base md:text-lg font-bold ${item.isYou ? 'text-violet-700' : 'text-zinc-900'}`}>{item.title}</h3>
                     <span class="text-xs text-violet-600 font-medium">— {item.subtitle}</span>
                   </div>
-                  <p class="text-sm text-zinc-500 leading-relaxed mb-2">
+                  <p class={`text-sm leading-relaxed mb-1.5 ${item.isYou ? 'text-violet-600/70' : 'text-zinc-400'}`}>
                     {item.description}
                   </p>
-                  <p class="text-sm text-zinc-700 font-medium">
+                  <p class={`text-sm font-semibold ${item.isYou ? 'text-violet-700' : 'text-zinc-700'}`}>
                     {item.highlight}
                   </p>
                 </div>
