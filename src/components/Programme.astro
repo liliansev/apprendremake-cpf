@@ -143,7 +143,7 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
     </div>
 
     <!-- Main Content -->
-    <div class="grid lg:grid-cols-3 gap-6 lg:gap-8">
+    <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
 
       <!-- LEFT: Learning Phases (2 cols) -->
       <div class="lg:col-span-2 space-y-4">
@@ -207,8 +207,8 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
         ))}
       </div>
 
-      <!-- RIGHT: Sidebar -->
-      <div class="space-y-5">
+      <!-- RIGHT: Sticky Sidebar -->
+      <div class="lg:sticky lg:top-24 space-y-5">
 
         <!-- Scenarios -->
         <div class="rounded-2xl border border-zinc-200 bg-white p-5">
@@ -258,12 +258,18 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
           </div>
         </div>
 
-        <!-- CTA -->
-        <div class="rounded-2xl bg-zinc-900 p-5 text-center">
-          <p class="text-white text-sm font-medium mb-1">Prêt à automatiser ?</p>
-          <p class="text-zinc-400 text-xs mb-4">{totalLessons}+ leçons · Accès à vie</p>
-          <CTAButton href="#pricing" />
-          <p class="text-xs text-zinc-500 mt-3">499€/an · Garantie 30 jours</p>
+        <!-- CTA inline -->
+        <div class="flex items-center gap-3 p-4 rounded-2xl bg-zinc-900">
+          <div class="flex-1 min-w-0">
+            <p class="text-white text-sm font-medium">Prêt à automatiser ?</p>
+            <p class="text-zinc-400 text-xs">{totalLessons}+ leçons · 499€/an</p>
+          </div>
+          <a
+            href="#pricing"
+            class="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white hover:bg-zinc-100 transition-colors"
+          >
+            <Icon name="lucide:arrow-down" class="w-5 h-5 text-zinc-900" />
+          </a>
         </div>
 
       </div>
