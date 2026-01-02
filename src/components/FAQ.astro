@@ -61,13 +61,13 @@ const faqs = [
         <div class="space-y-2">
             {
                 faqs.map((faq, i) => (
-                    <details class="group" open={i === 0}>
-                        <summary class="flex items-center justify-between p-4 rounded-lg bg-white border border-zinc-100 cursor-pointer list-none hover:border-zinc-200 transition-colors">
-                            <span class="text-sm font-medium text-zinc-900 pr-4">
+                    <details class="group faq-item rounded-xl overflow-hidden" open={i === 0}>
+                        <summary class="flex items-center justify-between p-4 bg-white border border-zinc-100 cursor-pointer list-none transition-all duration-200 hover:border-violet-200 group-open:bg-violet-50 group-open:border-violet-200">
+                            <span class="text-sm font-medium text-zinc-900 pr-4 group-open:text-violet-900">
                                 {faq.q}
                             </span>
                             <svg
-                                class="w-4 h-4 text-zinc-400 shrink-0 transition-transform group-open:rotate-180"
+                                class="w-4 h-4 text-zinc-400 shrink-0 transition-all duration-200 group-open:rotate-180 group-open:text-violet-500"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -80,7 +80,9 @@ const faqs = [
                                 />
                             </svg>
                         </summary>
-                        <div class="px-4 py-3 text-sm text-zinc-500 leading-relaxed" set:html={faq.a}>
+                        <div class="faq-content">
+                            <div class="px-4 py-3 text-sm text-zinc-600 leading-relaxed bg-violet-50/50 border-x border-b border-violet-100" set:html={faq.a}>
+                            </div>
                         </div>
                     </details>
                 ))
@@ -88,3 +90,25 @@ const faqs = [
         </div>
     </div>
 </section>
+
+<style>
+  /* Smooth animation for FAQ items */
+  .faq-item .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease-out;
+  }
+
+  .faq-item[open] .faq-content {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-item .faq-content > div {
+    overflow: hidden;
+  }
+
+  /* Remove default marker */
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
