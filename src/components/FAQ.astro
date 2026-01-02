@@ -5,39 +5,23 @@ import GridBackground from './ui/GridBackground.astro';
 const faqs = [
     {
         q: "C'est un paiement unique ?",
-        a: "Oui, c'est un paiement unique de 499€. Tu as accès à vie à tout : + de 100 vidéos, les nouveaux projets, les mises à jour, la communauté et le support.",
+        a: "Oui, 499€ une seule fois. Accès à vie à tout le contenu, mises à jour et communauté inclus.",
     },
     {
         q: "Faut-il savoir coder ?",
-        a: "Non, zéro code requis. Make est un outil no-code, tout se fait en glisser-déposer. Si tu sais utiliser Excel, tu peux apprendre Make.",
-    },
-    {
-        q: "Est-ce que 499€ ça vaut vraiment le coup ?",
-        a: "Fais le calcul : si tu gagnes 10h/semaine grâce à l'automatisation, que votre temps vaut 50€/h c'est 500€ économisés dès la première semaine.",
-    },
-    {
-        q: "Je n'ai pas le temps de suivre une formation...",
-        a: "+ de 100 vidéos de 5-15 min, à ton rythme. Tu n'as pas le temps de récupérer enfin ton temps ?",
-    },
-    {
-        q: "Je suis débutant, c'est pas trop technique ?",
-        a: "Non. J'ai 0 background technique, je viens pas du monde du développement mais j'ai appris, et je t'enseignerai.",
-    },
-    {
-        q: "Pourquoi payer alors qu'il y a des tutos gratuits sur YouTube ?",
-        a: "Parce que YouTube c'est le chaos : pas de structure, des vidéos dispersées, et tu galères seul. Ici tu as un parcours complet, des projets réels, et le support direct de l'expert Make le plus certifié de France. Tu gagnes des mois d'apprentissage.",
+        a: "Non, zéro code. Make est 100% no-code, tout se fait en glisser-déposer.",
     },
     {
         q: "Et si la formation ne me convient pas ?",
-        a: "Garantie 30 jours : je te rembourse sans poser de questions. Pas de justification, pas de formulaire, un simple email suffit.",
+        a: "Garantie 30 jours : remboursement sans question, un simple email suffit.",
     },
     {
         q: "La formation est-elle éligible au CPF ?",
-        a: "Oui ! Une version certifiante est disponible pour le financement CPF. <a href='https://lilian.yt/makecpf?ref=sitefaq' class='text-violet-400 hover:text-violet-300 underline font-medium'>Vérifie ton éligibilité ici</a> — je gère tout l'administratif pour toi.",
+        a: "Oui ! <a href='https://lilian.yt/makecpf?ref=sitefaq' class='text-violet-400 hover:text-violet-300 underline font-medium'>Vérifie ton éligibilité ici</a> — je gère l'administratif.",
     },
     {
-        q: "Une question ? Besoin d'échanger ?",
-        a: "Écris-moi directement sur LinkedIn ou par email à lilian@apprendremake.fr — je réponds personnellement à tous les messages.",
+        q: "Une question ?",
+        a: "Écris-moi sur LinkedIn ou à lilian@apprendremake.fr — je réponds personnellement.",
     },
 ];
 ---
@@ -64,12 +48,12 @@ const faqs = [
             {
                 faqs.map((faq, i) => (
                     <details class="group faq-item rounded-lg overflow-hidden" open={i === 0}>
-                        <summary class="flex items-center justify-between px-4 py-3 bg-zinc-900/80 border border-zinc-800 cursor-pointer list-none transition-all duration-200 hover:border-violet-500/30 group-open:bg-violet-500/10 group-open:border-violet-500/30">
-                            <span class="text-xs font-medium text-zinc-300 pr-4 group-open:text-violet-300">
+                        <summary class="flex items-center justify-between px-5 py-4 bg-zinc-900/80 border border-zinc-800 cursor-pointer list-none transition-all duration-200 hover:border-violet-500/30 group-open:bg-violet-500/10 group-open:border-violet-500/30">
+                            <span class="text-base font-semibold text-zinc-300 pr-4 group-open:text-violet-300">
                                 {faq.q}
                             </span>
                             <svg
-                                class="w-3.5 h-3.5 text-zinc-500 shrink-0 transition-all duration-200 group-open:rotate-180 group-open:text-violet-400"
+                                class="w-4 h-4 text-zinc-500 shrink-0 transition-all duration-200 group-open:rotate-180 group-open:text-violet-400"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -83,7 +67,7 @@ const faqs = [
                             </svg>
                         </summary>
                         <div class="faq-content">
-                            <div class="px-4 py-3 text-xs text-zinc-400 leading-relaxed bg-zinc-900/50 border-x border-b border-zinc-800" set:html={faq.a}>
+                            <div class="px-5 py-3 text-sm text-zinc-400 leading-relaxed bg-zinc-900/50 border-x border-b border-zinc-800" set:html={faq.a}>
                             </div>
                         </div>
                     </details>
@@ -114,3 +98,18 @@ const faqs = [
     display: none;
   }
 </style>
+
+<script>
+  // Empêche le scroll automatique quand on ouvre/ferme une question
+  document.querySelectorAll('.faq-item summary').forEach(summary => {
+    summary.addEventListener('click', (e) => {
+      const details = summary.parentElement as HTMLDetailsElement;
+      const scrollY = window.scrollY;
+
+      // Après le toggle, restaurer la position de scroll
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY);
+      });
+    });
+  });
+</script>
