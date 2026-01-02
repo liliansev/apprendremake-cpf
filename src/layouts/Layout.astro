@@ -48,5 +48,30 @@ const ogImage = `${siteUrl}/og-image.png`;
   </head>
   <body class="bg-white text-zinc-900 antialiased">
     <slot />
+
+    <script>
+      // Clean hash from URL after anchor navigation
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement;
+        if (anchor) {
+          e.preventDefault();
+          const targetId = anchor.getAttribute('href')?.slice(1);
+          const targetElement = targetId ? document.getElementById(targetId) : null;
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+            // Clean URL after scroll
+            setTimeout(() => {
+              history.replaceState(null, '', window.location.pathname);
+            }, 100);
+          }
+        }
+      });
+
+      // Clean hash on page load if present
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname);
+      }
+    </script>
   </body>
 </html>
