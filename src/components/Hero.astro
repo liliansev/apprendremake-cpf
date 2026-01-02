@@ -2,6 +2,7 @@
 // Hero section - Full-screen dark design with animated grid
 import CTAButton from "./CTAButton.astro";
 import GridBackground from "./ui/GridBackground.astro";
+import { Icon } from "astro-icon/components";
 
 const features = [
     "90+ leçons vidéo",
@@ -10,22 +11,23 @@ const features = [
     "Support réactif",
 ];
 
+// Apps with their simple-icons name
 const apps = [
-    "Notion",
-    "Airtable",
-    "Google Sheets",
-    "Slack",
-    "Gmail",
-    "HubSpot",
-    "Stripe",
-    "Calendly",
-    "Typeform",
-    "Shopify",
-    "Webflow",
-    "Discord",
-    "Trello",
-    "Asana",
-    "Salesforce",
+    { name: "Notion", icon: "simple-icons:notion" },
+    { name: "Airtable", icon: "simple-icons:airtable" },
+    { name: "Google Sheets", icon: "simple-icons:googlesheets" },
+    { name: "Slack", icon: "simple-icons:slack" },
+    { name: "Gmail", icon: "simple-icons:gmail" },
+    { name: "HubSpot", icon: "simple-icons:hubspot" },
+    { name: "Stripe", icon: "simple-icons:stripe" },
+    { name: "Calendly", icon: "simple-icons:calendly" },
+    { name: "Typeform", icon: "simple-icons:typeform" },
+    { name: "Shopify", icon: "simple-icons:shopify" },
+    { name: "Webflow", icon: "simple-icons:webflow" },
+    { name: "Discord", icon: "simple-icons:discord" },
+    { name: "Trello", icon: "simple-icons:trello" },
+    { name: "Asana", icon: "simple-icons:asana" },
+    { name: "Salesforce", icon: "simple-icons:salesforce" },
 ];
 ---
 
@@ -241,23 +243,11 @@ const apps = [
                     {
                         [...apps, ...apps].map((app) => (
                             <div class="flex items-center gap-2 shrink-0">
-                                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500">
-                                    <svg
-                                        class="w-4 h-4 md:w-5 md:h-5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.5"
-                                            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-                                        />
-                                    </svg>
+                                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400">
+                                    <Icon name={app.icon} class="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
                                 <span class="text-xs md:text-sm font-medium text-zinc-500 whitespace-nowrap">
-                                    {app}
+                                    {app.name}
                                 </span>
                             </div>
                         ))
