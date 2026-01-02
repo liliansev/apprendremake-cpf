@@ -1,15 +1,22 @@
 ---
-// CTA Button - Réutilisable avec effet bordure animée optionnel
-// variant: "light" (bouton blanc sur fond sombre) | "dark" (bouton violet sur fond clair)
+// CTA Button - Composant réutilisable pour tous les CTAs de la landing
+//
+// Variants:
+// - "primary": violet sur fond clair (sections blanches)
+// - "light": blanc sur fond sombre (Hero, CTAFinal, Pricing)
+// - "outline": bordure sur fond sombre (bouton secondaire)
+// - "cpf": emerald pour la carte CPF
 
 interface Props {
     href: string;
     text?: string;
-    variant?: "light" | "dark";
+    variant?: "primary" | "light" | "outline" | "cpf";
     class?: string;
     fullWidth?: boolean;
     id?: string;
     animated?: boolean;
+    icon?: "arrow" | "chevron" | "none";
+    iconPosition?: "left" | "right";
 }
 
 const {
@@ -20,16 +27,22 @@ const {
     fullWidth = false,
     id,
     animated = false,
+    icon = "arrow",
+    iconPosition = "right",
 } = Astro.props;
 
 const baseClasses =
     "group inline-flex items-center justify-center gap-2 text-sm font-semibold px-5 py-3 rounded-xl transition-all";
 
-const variantClasses = {
-    // Bouton blanc sur fond sombre → hover vers neutral-100
+const variantClasses: Record<string, string> = {
+    // Blanc sur fond sombre (Hero, CTAFinal, Pricing normal)
     light: "bg-white hover:bg-neutral-100 text-zinc-900",
-    // Bouton violet sur fond clair
-    dark: "bg-violet-600 hover:bg-violet-700 text-white",
+    // Violet sur fond clair (sections blanches)
+    primary: "bg-violet-600 hover:bg-violet-700 text-white",
+    // Outline sur fond sombre (bouton secondaire Hero)
+    outline: "bg-transparent border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white",
+    // Emerald pour CPF
+    cpf: "bg-emerald-600 hover:bg-emerald-500 text-white",
 };
 
 const wrapperWidth = fullWidth ? "w-full" : "w-full sm:w-auto";
@@ -48,18 +61,48 @@ const wrapperClass = animated ? "cta-border-wrap" : "";
             animated ? "cta-inner" : "",
         ]}
     >
+        {icon === "chevron" && iconPosition === "left" && (
+            <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
+            </svg>
+        )}
         <span>{text}</span>
-        <svg
-            class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-        >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
+        {icon === "arrow" && (
+            <svg
+                class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+        )}
+        {icon === "chevron" && iconPosition === "right" && (
+            <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
+            </svg>
+        )}
     </a>
 </div>

@@ -1,6 +1,7 @@
 ---
 // Programme section - Curriculum grouped by learning phases
 import { Icon } from 'astro-icon/components';
+import LightGridBackground from './ui/LightGridBackground.astro';
 
 // Grouped by learning phases
 const phases = [
@@ -138,8 +139,9 @@ const totalLessons = phases.reduce((acc, phase) => acc + phase.totalLessons, 0);
 const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length, 0);
 ---
 
-<section id="programme" class="py-16 md:py-24 bg-gradient-to-b from-white to-neutral-50/80">
-  <div class="max-w-3xl mx-auto px-4 md:px-6">
+<section id="programme" class="relative py-16 md:py-24 bg-gradient-to-b from-white to-neutral-50/80 overflow-hidden">
+  <LightGridBackground opacity={5} />
+  <div class="relative max-w-3xl mx-auto px-4 md:px-6">
     <!-- Header -->
     <div class="text-center mb-12 md:mb-16">
       <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Programme complet</p>

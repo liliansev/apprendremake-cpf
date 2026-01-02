@@ -1,5 +1,7 @@
 ---
 // FAQ section - Objections transformées en questions
+import LightGridBackground from './ui/LightGridBackground.astro';
+
 const faqs = [
     {
         q: "C'est un paiement unique ?",
@@ -40,8 +42,9 @@ const faqs = [
 ];
 ---
 
-<section class="py-16 md:py-20 bg-neutral-50/50">
-    <div class="max-w-5xl mx-auto px-4 md:px-6">
+<section class="relative py-16 md:py-20 bg-neutral-50/50 overflow-hidden">
+    <LightGridBackground opacity={5} />
+    <div class="relative max-w-5xl mx-auto px-4 md:px-6">
         <!-- Header -->
         <div class="text-center mb-10">
             <p

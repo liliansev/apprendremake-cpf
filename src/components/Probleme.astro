@@ -1,6 +1,7 @@
 ---
 // Probleme section - Premium design with gradient icons
 import { Icon } from 'astro-icon/components';
+import LightGridBackground from './ui/LightGridBackground.astro';
 
 const problems = [
   {
@@ -24,8 +25,9 @@ const problems = [
 ];
 ---
 
-<section class="py-20 md:py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-4 md:px-6">
+<section class="relative py-20 md:py-28 bg-white overflow-hidden">
+  <LightGridBackground opacity={5} />
+  <div class="relative max-w-6xl mx-auto px-4 md:px-6">
     <!-- Header -->
     <div class="text-center mb-12">
       <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Le problème</p>
@@ -63,7 +65,7 @@ const problems = [
         <span class="font-semibold text-zinc-900">Make automatise tout ça.</span> Sans code. Sans prise de tête.
       </p>
       <p class="text-base md:text-lg text-zinc-500">
-        <span class="font-medium text-zinc-700">Je vous montre comment</span> — de A à Z.
+        <span class="font-medium text-zinc-700">Je vous enseignerai tout</span> — de A à Z.
       </p>
     </div>
   </div>

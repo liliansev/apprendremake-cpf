@@ -1,15 +1,15 @@
 ---
-// GridBackground - Grille subtile pour les sections dark
+// LightGridBackground - Grille subtile pour les sections light avec fondu radial
 interface Props {
-  color?: string;      // Couleur des lignes (défaut: violet #a78bfa)
+  color?: string;      // Couleur des lignes (défaut: violet clair)
   size?: number;       // Taille des cellules en px (défaut: 60)
-  opacity?: number;    // Opacité 0-100 (défaut: 2)
+  opacity?: number;    // Opacité 0-100 (défaut: 6)
 }
 
 const {
-  color = '#a78bfa',
+  color = '#8b5cf6',   // violet-500 pour fond clair
   size = 60,
-  opacity = 2
+  opacity = 6          // légèrement plus visible sur fond clair
 } = Astro.props;
 ---
 
@@ -20,5 +20,7 @@ const {
                       linear-gradient(to bottom, ${color} 1px, transparent 1px);
     background-size: ${size}px ${size}px;
     opacity: ${opacity / 100};
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
   `}
 ></div>

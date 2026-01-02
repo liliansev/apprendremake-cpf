@@ -1,5 +1,7 @@
 ---
 // Temoignages section TOP (3 avis) - LIGHT background - Before Pricing
+import LightGridBackground from './ui/LightGridBackground.astro';
+
 const testimonials = [
   {
     quote: "En moins d'une heure, j'ai pu gagner des jours de travail. Lilian a une approche claire et concise pour transmettre ses connaissances, ce qui en fait un excellent enseignant.",
@@ -19,8 +21,9 @@ const testimonials = [
 ];
 ---
 
-<section class="py-16 md:py-20 bg-neutral-50/50">
-  <div class="max-w-5xl mx-auto px-4 md:px-6">
+<section class="relative py-16 md:py-20 bg-neutral-50/50 overflow-hidden">
+  <LightGridBackground opacity={5} />
+  <div class="relative max-w-5xl mx-auto px-4 md:px-6">
     <!-- Header -->
     <div class="text-center mb-10">
       <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Avis vérifiés</p>
