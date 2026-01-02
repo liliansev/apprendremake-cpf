@@ -32,8 +32,8 @@ const faqs = [
         a: "Garantie 30 jours : je te rembourse sans poser de questions. Pas de justification, pas de formulaire, un simple email suffit.",
     },
     {
-        q: "Comment ça marche avec le CPF ?",
-        a: "Remplis le formulaire d'éligibilité, je m'occupe de tout l'administratif.",
+        q: "La formation est-elle éligible au CPF ?",
+        a: "Oui ! Une version certifiante est disponible pour le financement CPF. <a href='https://lilian.yt/makecpf?ref=sitefaq' class='text-violet-600 hover:text-violet-700 underline font-medium'>Vérifie ton éligibilité ici</a> — je gère tout l'administratif pour toi.",
     },
     {
         q: "Une question ? Besoin d'échanger ?",
@@ -80,8 +80,7 @@ const faqs = [
                                 />
                             </svg>
                         </summary>
-                        <div class="px-4 py-3 text-sm text-zinc-500 leading-relaxed">
-                            {faq.a}
+                        <div class="px-4 py-3 text-sm text-zinc-500 leading-relaxed" set:html={faq.a}>
                         </div>
                     </details>
                 ))

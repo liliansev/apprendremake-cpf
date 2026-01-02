@@ -3,13 +3,13 @@
 interface Props {
   color?: string;      // Couleur des lignes (défaut: violet clair)
   size?: number;       // Taille des cellules en px (défaut: 60)
-  opacity?: number;    // Opacité 0-100 (défaut: 6)
+  opacity?: number;    // Opacité 0-100 (défaut: 12)
 }
 
 const {
   color = '#8b5cf6',   // violet-500 pour fond clair
   size = 60,
-  opacity = 6          // légèrement plus visible sur fond clair
+  opacity = 12         // plus visible sur fond clair
 } = Astro.props;
 ---
 
@@ -20,7 +20,7 @@ const {
                       linear-gradient(to bottom, ${color} 1px, transparent 1px);
     background-size: ${size}px ${size}px;
     opacity: ${opacity / 100};
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 35%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 35%, transparent 75%);
   `}
 ></div>
