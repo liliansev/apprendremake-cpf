@@ -398,23 +398,24 @@ const apps = [
         const rotateWord = () => {
             if (!rotatingWord) return;
 
-            // Le mot actuel sort vers le bas
+            // Le mot actuel sort vers le bas (rapide)
+            rotatingWord.style.transition = "opacity 0.15s ease-in, transform 0.15s ease-in";
             rotatingWord.style.opacity = "0";
             rotatingWord.style.transform = "translateY(100%)";
 
             setTimeout(() => {
-                // Le nouveau mot arrive du haut
+                // Le nouveau mot arrive du haut immédiatement après
                 rotatingWord.style.transition = "none";
-                rotatingWord.style.transform = "translateY(-100%)";
+                rotatingWord.style.transform = "translateY(-50%)";
                 wordIndex = (wordIndex + 1) % words.length;
                 rotatingWord.textContent = words[wordIndex];
 
                 // Force reflow puis anime
                 rotatingWord.offsetHeight;
-                rotatingWord.style.transition = "opacity 0.25s ease-out, transform 0.25s ease-out";
+                rotatingWord.style.transition = "opacity 0.2s ease-out, transform 0.2s ease-out";
                 rotatingWord.style.opacity = "1";
                 rotatingWord.style.transform = "translateY(0)";
-            }, 250);
+            }, 150);
         };
 
         requestAnimationFrame(updateCounter);
