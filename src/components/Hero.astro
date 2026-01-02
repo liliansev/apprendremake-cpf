@@ -292,11 +292,13 @@ const apps = [
 </style>
 
 <script>
+    // SEO: Le HTML source contient "20h" et "CRM" - Google voit ces valeurs
+    // JS anime pour les utilisateurs uniquement
     document.addEventListener("DOMContentLoaded", () => {
         const hoursCounter = document.getElementById("hours-counter");
         const rotatingWord = document.getElementById("rotating-word");
 
-        // Immédiatement afficher 0h (HTML garde 20h pour SEO)
+        // Afficher 0h immédiatement (HTML garde 20h pour SEO/crawlers)
         if (hoursCounter) {
             hoursCounter.textContent = "0h";
         }
@@ -312,59 +314,76 @@ const apps = [
         ];
         let wordIndex = 0;
 
-        // Fonction pour animer le mot rotatif
+        // Animation du mot rotatif (rapide et snappy)
         const animateWord = () => {
             if (!rotatingWord) return;
 
+            // Sortie vers le bas
             rotatingWord.style.transition = "opacity 0.15s ease-in, transform 0.15s ease-in";
             rotatingWord.style.opacity = "0";
-            rotatingWord.style.transform = "translateY(100%)";
+            rotatingWord.style.transform = "translateY(50%)";
 
             setTimeout(() => {
+                // Nouveau mot depuis le haut
                 rotatingWord.style.transition = "none";
-                rotatingWord.style.transform = "translateY(-50%)";
+                rotatingWord.style.transform = "translateY(-30%)";
                 wordIndex = (wordIndex + 1) % words.length;
                 rotatingWord.textContent = words[wordIndex];
 
-                rotatingWord.offsetHeight;
+                rotatingWord.offsetHeight; // Force reflow
+
+                // Entrée smooth
                 rotatingWord.style.transition = "opacity 0.2s ease-out, transform 0.2s ease-out";
                 rotatingWord.style.opacity = "1";
                 rotatingWord.style.transform = "translateY(0)";
             }, 150);
         };
 
-        // Délai avant de lancer les animations
+        // Animation du compteur
+        const animateCounter = () => {
+            if (!hoursCounter) return;
+
+            const targetHours = 20;
+            const duration = 1400; // 1.4s
+            const startTime = performance.now();
+
+            const tick = (currentTime: number) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing out cubic
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.round(easeOut * targetHours);
+
+                hoursCounter.textContent = `${currentValue}h`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                }
+            };
+
+            requestAnimationFrame(tick);
+        };
+
+        // Timeline synchronisée
+        // t=0: page chargée
+        // t=200ms: mot commence à sortir
+        // t=500ms: nouveau mot commence à entrer
+        // t=300ms: compteur démarre
+        // t=1700ms: compteur atteint 20h (300 + 1400)
+        // t=800ms: nouveau mot visible
+
         setTimeout(() => {
-            // Animation du compteur (0 → 20h)
-            if (hoursCounter) {
-                const targetHours = 20;
-                const duration = 1800; // 1.8 secondes
-                const startTime = performance.now();
+            // Mot commence à défiler
+            animateWord();
 
-                const animateCounter = (currentTime: number) => {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
+            // Compteur démarre 100ms après
+            setTimeout(animateCounter, 100);
 
-                    // Easing out cubic
-                    const easeOut = 1 - Math.pow(1 - progress, 3);
-                    const currentValue = Math.round(easeOut * targetHours);
-
-                    hoursCounter.textContent = `${currentValue}h`;
-
-                    if (progress < 1) {
-                        requestAnimationFrame(animateCounter);
-                    }
-                };
-
-                requestAnimationFrame(animateCounter);
-
-                // Déclencher le premier changement de mot juste avant la fin du compteur
-                setTimeout(() => {
-                    animateWord();
-                    // Puis continuer à défiler toutes les 2.5s
-                    setInterval(animateWord, 2500);
-                }, duration - 300); // 300ms avant la fin
-            }
-        }, 800); // Attendre 800ms avant de commencer
+            // Continuer le défilement après l'intro
+            setTimeout(() => {
+                setInterval(animateWord, 1800);
+            }, 1000);
+        }, 200);
     });
 </script>
