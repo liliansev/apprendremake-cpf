@@ -37,18 +37,21 @@
     const navbar = document.getElementById('navbar');
     const navbarCta = document.getElementById('navbar-cta');
     const heroCta = document.getElementById('hero-cta');
-    const pricingSection = document.getElementById('pricing');
+    const pricingCta = document.getElementById('pricing-cta');
 
     if (!navbar || !navbarCta) return;
 
     function updateNavbar() {
-      const pricingRect = pricingSection?.getBoundingClientRect();
       const heroCtaRect = heroCta?.getBoundingClientRect();
+      const pricingCtaRect = pricingCta?.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
-      // Hide entire navbar when pricing section is visible
-      const pricingVisible = pricingRect && pricingRect.top < viewportHeight * 0.5 && pricingRect.bottom > 100;
-      navbar.classList.toggle('navbar-hidden', pricingVisible);
+      // Hide navbar ONLY when pricing CTA button is visible on screen
+      // The button is visible if its top is above viewport bottom and bottom is below viewport top
+      const pricingCtaVisible = pricingCtaRect &&
+        pricingCtaRect.top < viewportHeight &&
+        pricingCtaRect.bottom > 0;
+      navbar.classList.toggle('navbar-hidden', pricingCtaVisible);
 
       // Show navbar CTA when hero CTA is scrolled out of view
       const heroCtaVisible = heroCtaRect && heroCtaRect.bottom > 80;
