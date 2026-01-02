@@ -124,11 +124,11 @@ const apps = [
                     </div>
                     <div class="flex justify-center">
                         <span class="text-left min-w-[14ch] pl-[1ch]"
-                            >votre <span
+                            >votre <span class="inline-block overflow-hidden align-bottom"><span
                                 id="rotating-word"
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-300"
+                                class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-300"
                                 >business</span
-                            ></span
+                            ></span></span
                         >
                     </div>
                     <div class="text-zinc-500">en 2 semaines</div>
@@ -365,10 +365,10 @@ const apps = [
         }
         if (rotatingWord) {
             rotatingWord.style.transition =
-                "opacity 0.2s ease-out, transform 0.2s ease-out";
+                "opacity 0.25s ease-out, transform 0.25s ease-out";
             rotatingWord.style.display = "inline-block";
             rotatingWord.style.opacity = "0";
-            rotatingWord.style.transform = "translateY(8px)";
+            rotatingWord.style.transform = "translateY(-100%)"; // Arrive du haut
         }
 
         const startTime = performance.now();
@@ -398,15 +398,23 @@ const apps = [
         const rotateWord = () => {
             if (!rotatingWord) return;
 
+            // Le mot actuel sort vers le bas
             rotatingWord.style.opacity = "0";
-            rotatingWord.style.transform = "translateY(-8px)";
+            rotatingWord.style.transform = "translateY(100%)";
 
             setTimeout(() => {
+                // Le nouveau mot arrive du haut
+                rotatingWord.style.transition = "none";
+                rotatingWord.style.transform = "translateY(-100%)";
                 wordIndex = (wordIndex + 1) % words.length;
                 rotatingWord.textContent = words[wordIndex];
+
+                // Force reflow puis anime
+                rotatingWord.offsetHeight;
+                rotatingWord.style.transition = "opacity 0.25s ease-out, transform 0.25s ease-out";
                 rotatingWord.style.opacity = "1";
                 rotatingWord.style.transform = "translateY(0)";
-            }, 150);
+            }, 250);
         };
 
         requestAnimationFrame(updateCounter);
