@@ -52,11 +52,14 @@ const apps = [
           </span>
         </div>
 
-        <!-- Headline -->
-        <h1 class="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-white mb-4 md:mb-6 leading-[1.1] text-center">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-300">Maîtrisez Make</span> en 2 semaines<br class="hidden sm:block" />
-          <span class="text-zinc-400">et automatisez 100% de vos tâches répétitives.</span>
-        </h1>
+        <!-- Headline - Animated counter + rotating words -->
+        <div class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white mb-4 md:mb-6 leading-[1.1] text-center">
+          <div>Automatisez <span id="percent-counter" class="inline-block min-w-[3.5ch] text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-300">0%</span> de</div>
+          <div class="flex justify-center">
+            <span class="text-left min-w-[14ch] pl-[1ch]">votre <span id="rotating-word" class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-300" style="opacity: 0;"></span></span>
+          </div>
+          <div class="text-zinc-500">en 2 semaines</div>
+        </div>
 
         <!-- Subheadline -->
         <p class="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed">
@@ -208,4 +211,73 @@ const apps = [
     animation-play-state: paused;
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counter = document.getElementById("percent-counter");
+    const rotatingWord = document.getElementById("rotating-word");
+    const words = [
+      "CRM",
+      "Notion",
+      "boîte mail",
+      "facturation",
+      "prospection",
+      "onboarding",
+      "reporting",
+    ];
+    let wordIndex = 0;
+    const counterDuration = 1500;
+
+    if (rotatingWord) {
+      rotatingWord.style.transition = "opacity 0.2s ease-out, transform 0.2s ease-out";
+      rotatingWord.style.display = "inline-block";
+      rotatingWord.style.transform = "translateY(8px)";
+    }
+
+    const startTime = performance.now();
+
+    const updateCounter = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / counterDuration, 1);
+      const currentValue = Math.round(progress * 100);
+
+      if (counter) {
+        counter.textContent = currentValue + "%";
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      }
+    };
+
+    const showFirstWord = () => {
+      if (rotatingWord) {
+        rotatingWord.textContent = words[0];
+        rotatingWord.style.opacity = "1";
+        rotatingWord.style.transform = "translateY(0)";
+      }
+    };
+
+    const rotateWord = () => {
+      if (!rotatingWord) return;
+
+      rotatingWord.style.opacity = "0";
+      rotatingWord.style.transform = "translateY(-8px)";
+
+      setTimeout(() => {
+        wordIndex = (wordIndex + 1) % words.length;
+        rotatingWord.textContent = words[wordIndex];
+        rotatingWord.style.opacity = "1";
+        rotatingWord.style.transform = "translateY(0)";
+      }, 150);
+    };
+
+    requestAnimationFrame(updateCounter);
+    setTimeout(showFirstWord, 150);
+    setTimeout(() => {
+      rotateWord();
+      setInterval(rotateWord, 2000);
+    }, counterDuration);
+  });
+</script>
 
