@@ -3,7 +3,7 @@
 @theme {
   --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Couleurs custom - Violet moderne pour light mode */
+  /* Couleurs custom - Violet moderne */
   --color-accent-50: #faf5ff;
   --color-accent-100: #f3e8ff;
   --color-accent-200: #e9d5ff;
@@ -15,6 +15,35 @@
   --color-accent-800: #6b21a8;
   --color-accent-900: #581c87;
   --color-accent-950: #3b0764;
+
+  /* ========================================
+     DESIGN SYSTEM - Surfaces & Text
+     ======================================== */
+
+  /* Dark mode surfaces */
+  --color-surface-dark: #09090b;        /* zinc-950 - sections sombres */
+  --color-surface-dark-alt: #18181b;    /* zinc-900 - cards sur dark */
+  --color-surface-dark-elevated: #27272a; /* zinc-800 - hover states */
+
+  /* Light mode surfaces */
+  --color-surface-light: #fafafa;       /* neutral-50 - sections claires */
+  --color-surface-light-alt: #ffffff;   /* white - cards sur light */
+  --color-surface-light-muted: #f5f5f5; /* neutral-100 - hover states */
+
+  /* Text hierarchy - Dark backgrounds */
+  --color-text-on-dark: #ffffff;        /* white - titres */
+  --color-text-on-dark-muted: #d4d4d8;  /* zinc-300 - corps */
+  --color-text-on-dark-subtle: #a1a1aa; /* zinc-400 - secondaire */
+  --color-text-on-dark-faint: #71717a;  /* zinc-500 - discret */
+
+  /* Text hierarchy - Light backgrounds */
+  --color-text-on-light: #18181b;       /* zinc-900 - titres */
+  --color-text-on-light-muted: #52525b; /* zinc-600 - corps */
+  --color-text-on-light-subtle: #71717a; /* zinc-500 - secondaire */
+
+  /* Borders */
+  --color-border-dark: #27272a;         /* zinc-800 */
+  --color-border-light: #e5e5e5;        /* neutral-200 */
 }
 
 /* Base styles */
