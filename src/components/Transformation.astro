@@ -1,6 +1,7 @@
 ---
 // Transformation section - "The Gap" - Before/After emotional journey (DARK)
 import { Icon } from 'astro-icon/components';
+import GridBackground from "./ui/GridBackground.astro";
 
 const transformations = [
   {
@@ -56,11 +57,9 @@ const transformations = [
 
 <section class="relative py-16 md:py-24 bg-zinc-950 overflow-hidden">
   <!-- Background effects -->
-  <div class="absolute inset-0">
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(to right, #a78bfa 1px, transparent 1px), linear-gradient(to bottom, #a78bfa 1px, transparent 1px); background-size: 60px 60px;"></div>
-    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-1/4 left-1/4 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
-  </div>
+  <GridBackground />
+  <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 left-1/4 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
 
   <div class="relative max-w-6xl mx-auto px-4 md:px-6">
     <!-- Header -->

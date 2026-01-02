@@ -1,37 +1,18 @@
 ---
 // Pricing section - Dark mode with Hero DA
 import CTAButton from "./CTAButton.astro";
+import GridBackground from "./ui/GridBackground.astro";
 ---
 
 <section
     id="pricing"
     class="relative py-20 md:py-28 bg-zinc-950 overflow-hidden"
 >
-    <!-- Background effects like Hero -->
-    <div class="absolute inset-0">
-        <!-- Grid pattern -->
-        <div
-            class="absolute inset-0 opacity-[0.03]"
-            style="background-image: linear-gradient(to right, #a78bfa 1px, transparent 1px), linear-gradient(to bottom, #a78bfa 1px, transparent 1px); background-size: 60px 60px;"
-        >
-        </div>
-
-        <!-- Gradient orbs -->
-        <div
-            class="absolute top-1/4 right-1/4 w-100 h-100 bg-violet-600/10 rounded-full blur-3xl"
-        >
-        </div>
-        <div
-            class="absolute bottom-1/4 left-1/4 w-75 h-75 bg-violet-500/10 rounded-full blur-3xl"
-        >
-        </div>
-
-        <!-- Radial fade -->
-        <div
-            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#09090b_70%)]"
-        >
-        </div>
-    </div>
+    <!-- Background effects -->
+    <GridBackground opacity={3} />
+    <div class="absolute top-1/4 right-1/4 w-100 h-100 bg-violet-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-75 h-75 bg-violet-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#09090b_70%)]"></div>
 
     <div class="relative max-w-5xl mx-auto px-4 md:px-6">
         <!-- Header -->

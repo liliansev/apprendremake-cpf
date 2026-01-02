@@ -1,6 +1,7 @@
 ---
 // Hero section - Full-screen dark design with animated grid
 import CTAButton from "./CTAButton.astro";
+import GridBackground from "./ui/GridBackground.astro";
 
 const features = [
   "90+ leçons vidéo",
@@ -17,14 +18,11 @@ const apps = [
 ---
 
 <section class="relative min-h-screen flex flex-col overflow-hidden bg-zinc-950">
-  <!-- Animated grid pattern -->
-  <div class="absolute inset-0">
-    <div
-      class="absolute inset-0 opacity-[0.03]"
-      style="background-image: linear-gradient(to right, #a78bfa 1px, transparent 1px), linear-gradient(to bottom, #a78bfa 1px, transparent 1px); background-size: 60px 60px;"
-    ></div>
+  <!-- Grid pattern -->
+  <GridBackground opacity={3} />
 
-    <!-- Animated glow lines -->
+  <!-- Animated glow lines -->
+  <div class="absolute inset-0">
     <div class="grid-line-h absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" style="top: 20%;"></div>
     <div class="grid-line-h absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/35 to-transparent" style="top: 40%; animation-delay: 2s;"></div>
     <div class="grid-line-h absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/25 to-transparent" style="top: 60%; animation-delay: 4s;"></div>

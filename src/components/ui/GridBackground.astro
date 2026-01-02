@@ -1,0 +1,24 @@
+---
+// GridBackground - Grille subtile pour les sections dark
+interface Props {
+  color?: string;      // Couleur des lignes (défaut: violet #a78bfa)
+  size?: number;       // Taille des cellules en px (défaut: 60)
+  opacity?: number;    // Opacité 0-100 (défaut: 2)
+}
+
+const {
+  color = '#a78bfa',
+  size = 60,
+  opacity = 2
+} = Astro.props;
+---
+
+<div
+  class="absolute inset-0 pointer-events-none"
+  style={`
+    background-image: linear-gradient(to right, ${color} 1px, transparent 1px),
+                      linear-gradient(to bottom, ${color} 1px, transparent 1px);
+    background-size: ${size}px ${size}px;
+    opacity: ${opacity / 100};
+  `}
+></div>

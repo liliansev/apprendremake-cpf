@@ -1,6 +1,7 @@
 ---
-// CTA Final - Vente directe
+// CTA Final - Vente directeim
 import CTAButton from "./CTAButton.astro";
+import GridBackground from "./ui/GridBackground.astro";
 
 const benefits = [
     "+ de 90 leçons pratiques",
@@ -15,8 +16,14 @@ const reassurances = [
 ];
 ---
 
-<section id="cta-final" class="py-16 md:py-24 bg-zinc-900">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+<section
+    id="cta-final"
+    class="relative py-16 md:py-24 bg-zinc-950 overflow-hidden"
+>
+    <!-- Grille en fond (DOIT être à l'intérieur du conteneur relative) -->
+    <GridBackground />
+
+    <div class="relative max-w-5xl mx-auto px-4 md:px-6 text-center">
         <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">
             Arrêtez de perdre du temps.<br class="hidden sm:block" />
             <span class="text-violet-400">Automatisez.</span>
