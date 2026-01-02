@@ -1,5 +1,5 @@
 ---
-// Temoignages section - Vrais avis LinkedIn avec grid uniforme
+// Temoignages section TOP (3 avis) - LIGHT background - Before Pricing
 const testimonials = [
   {
     quote: "En moins d'une heure, j'ai pu gagner des jours de travail. Lilian a une approche claire et concise pour transmettre ses connaissances, ce qui en fait un excellent enseignant.",
@@ -15,21 +15,6 @@ const testimonials = [
     quote: "Plus qu'un excellent prestataire, il est très passionné et pédagogue. La différence c'est qu'il essaye 30 solutions en 5 minutes, là où j'en essaye 5 en 30 heures.",
     author: "Gérald Durand",
     role: "Expert Automatisations & I.A"
-  },
-  {
-    quote: "Un Champion du no code d'Airtable et de Make avéré ! Un vrai bonheur de travailler avec Lilian. Il est à l'écoute, arrangeant et passionné. Je recommande sans hésitation !",
-    author: "Ismail Landoulsi",
-    role: "Co-Founder & COO @CasanovaParis"
-  },
-  {
-    quote: "Je tiens à remercier publiquement Lilian qui m'a fait upgrade mon niveau. Notamment dans la partie 3 de la formation. Il forme véritablement les 1%.",
-    author: "Aleksandre Chevtchouk",
-    role: "Élève de la formation Make"
-  },
-  {
-    quote: "Sa pédagogie est exceptionnelle. Il sait rendre accessible des concepts complexes tout en gardant un niveau d'exigence élevé. Une formation qui vaut largement son investissement.",
-    author: "Marie Dupont",
-    role: "Ops Manager @StartupFlow"
   }
 ];
 ---
@@ -45,8 +30,8 @@ const testimonials = [
       <p class="text-zinc-500 text-sm mt-2">Recommandations LinkedIn de vrais clients et apprenants</p>
     </div>
 
-    <!-- Testimonials - Grid uniforme -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {testimonials.map((t) => (
         <div class="flex flex-col p-5 rounded-xl bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-sm transition-all h-full">
           <!-- LinkedIn badge + stars -->
@@ -63,12 +48,12 @@ const testimonials = [
             </svg>
           </div>
 
-          <!-- Quote - flex-grow pour occuper l'espace -->
+          <!-- Quote -->
           <p class="text-sm text-zinc-600 leading-relaxed flex-grow mb-4">
             "{t.quote}"
           </p>
 
-          <!-- Author - toujours en bas -->
+          <!-- Author -->
           <div class="flex items-center gap-3 pt-3 border-t border-zinc-100 mt-auto">
             <div class="w-9 h-9 rounded-full bg-gradient-to-br from-violet-100 to-violet-50 flex items-center justify-center shrink-0">
               <span class="text-xs font-semibold text-violet-600">{t.author.split(' ')[0][0]}{t.author.split(' ')[1] ? t.author.split(' ')[1][0] : ''}</span>

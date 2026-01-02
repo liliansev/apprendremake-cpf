@@ -1,5 +1,5 @@
 ---
-// Transformation section - "The Gap" - Before/After emotional journey
+// Transformation section - "The Gap" - Before/After emotional journey (DARK)
 import { Icon } from 'astro-icon/components';
 
 const transformations = [
@@ -54,31 +54,38 @@ const transformations = [
 ];
 ---
 
-<section class="py-16 md:py-24 bg-zinc-50/50 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 md:px-6">
+<section class="relative py-16 md:py-24 bg-zinc-950 overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(to right, #a78bfa 1px, transparent 1px), linear-gradient(to bottom, #a78bfa 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 md:px-6">
     <!-- Header -->
     <div class="text-center mb-12 md:mb-16">
-      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">La transformation</p>
-      <h2 class="text-2xl md:text-4xl font-semibold text-zinc-900 mb-4">
+      <p class="text-violet-400 text-xs font-medium tracking-wider uppercase mb-3">La transformation</p>
+      <h2 class="text-2xl md:text-4xl font-semibold text-white mb-4">
         Arrêtez de subir Make.<br class="hidden sm:block" />
-        <span class="text-violet-600">Commencez à dompter l'outil.</span>
+        <span class="text-violet-400">Commencez à dompter l'outil.</span>
       </h2>
-      <p class="text-zinc-500 max-w-xl mx-auto">
+      <p class="text-zinc-400 max-w-xl mx-auto">
         Ce n'est pas juste une formation. C'est un changement d'état d'esprit.
       </p>
     </div>
 
     <!-- Desktop: Split screen -->
-    <div class="hidden md:grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden shadow-lg border border-zinc-200 bg-white">
+    <div class="hidden md:grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
       <!-- Before column -->
-      <div class="p-8 lg:p-10 border-r border-zinc-100">
+      <div class="p-8 lg:p-10 border-r border-zinc-800">
         <div class="flex items-center gap-3 mb-8">
-          <div class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
-            <Icon name="lucide:x" class="w-5 h-5 text-red-500" />
+          <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+            <Icon name="lucide:x" class="w-5 h-5 text-red-400" />
           </div>
           <div>
-            <p class="text-xs font-medium text-red-500 uppercase tracking-wider">Avant</p>
-            <p class="text-lg font-semibold text-zinc-900">Seul face à la machine</p>
+            <p class="text-xs font-medium text-red-400 uppercase tracking-wider">Avant</p>
+            <p class="text-lg font-semibold text-white">Seul face à la machine</p>
           </div>
         </div>
 
@@ -86,12 +93,12 @@ const transformations = [
           {transformations.map((item) => (
             <div class="group">
               <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon name={item.before.icon} class="w-4 h-4 text-red-500" />
+                <div class="w-7 h-7 rounded-lg bg-red-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name={item.before.icon} class="w-4 h-4 text-red-400" />
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-zinc-900 mb-1">{item.before.title}</h4>
-                  <p class="text-sm text-zinc-500 leading-relaxed">{item.before.description}</p>
+                  <h4 class="text-base font-semibold text-white mb-1">{item.before.title}</h4>
+                  <p class="text-sm text-zinc-400 leading-relaxed">{item.before.description}</p>
                 </div>
               </div>
             </div>
@@ -100,14 +107,14 @@ const transformations = [
       </div>
 
       <!-- After column -->
-      <div class="p-8 lg:p-10 bg-violet-50/50">
+      <div class="p-8 lg:p-10 bg-violet-500/5">
         <div class="flex items-center gap-3 mb-8">
-          <div class="w-10 h-10 rounded-full bg-violet-500/10 flex items-center justify-center">
-            <Icon name="lucide:check" class="w-5 h-5 text-violet-600" />
+          <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center">
+            <Icon name="lucide:check" class="w-5 h-5 text-violet-400" />
           </div>
           <div>
-            <p class="text-xs font-medium text-violet-600 uppercase tracking-wider">Après</p>
-            <p class="text-lg font-semibold text-zinc-900">Le mindset d'Expert</p>
+            <p class="text-xs font-medium text-violet-400 uppercase tracking-wider">Après</p>
+            <p class="text-lg font-semibold text-white">Le mindset d'Expert</p>
           </div>
         </div>
 
@@ -115,12 +122,12 @@ const transformations = [
           {transformations.map((item) => (
             <div class="group">
               <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-lg bg-violet-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon name={item.after.icon} class="w-4 h-4 text-violet-600" />
+                <div class="w-7 h-7 rounded-lg bg-violet-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name={item.after.icon} class="w-4 h-4 text-violet-400" />
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-zinc-900 mb-1">{item.after.title}</h4>
-                  <p class="text-sm text-zinc-500 leading-relaxed">{item.after.description}</p>
+                  <h4 class="text-base font-semibold text-white mb-1">{item.after.title}</h4>
+                  <p class="text-sm text-zinc-400 leading-relaxed">{item.after.description}</p>
                 </div>
               </div>
             </div>
@@ -129,37 +136,37 @@ const transformations = [
       </div>
     </div>
 
-    <!-- Mobile: Stacked cards -->
+    <!-- Mobile: Stacked cards (3 items only) -->
     <div class="md:hidden space-y-4">
-      {transformations.map((item) => (
-        <div class="rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-white">
+      {transformations.slice(0, 3).map((item) => (
+        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900/80">
           <!-- Before -->
-          <div class="p-4 border-b border-zinc-100">
+          <div class="p-4 border-b border-zinc-800">
             <div class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                <Icon name={item.before.icon} class="w-4 h-4 text-red-500" />
+              <div class="w-7 h-7 rounded-lg bg-red-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name={item.before.icon} class="w-4 h-4 text-red-400" />
               </div>
               <div>
-                <p class="text-[10px] font-medium text-red-500 uppercase tracking-wider mb-0.5">Avant</p>
-                <h4 class="text-sm font-semibold text-zinc-900 mb-1">{item.before.title}</h4>
-                <p class="text-xs text-zinc-500 leading-relaxed">{item.before.description}</p>
+                <p class="text-[10px] font-medium text-red-400 uppercase tracking-wider mb-0.5">Avant</p>
+                <h4 class="text-sm font-semibold text-white mb-1">{item.before.title}</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">{item.before.description}</p>
               </div>
             </div>
           </div>
           <!-- Arrow -->
-          <div class="py-1.5 flex justify-center bg-zinc-50">
-            <Icon name="lucide:arrow-down" class="w-4 h-4 text-violet-500" />
+          <div class="py-1.5 flex justify-center bg-zinc-800/50">
+            <Icon name="lucide:arrow-down" class="w-4 h-4 text-violet-400" />
           </div>
           <!-- After -->
-          <div class="p-4 bg-violet-50/50">
+          <div class="p-4 bg-violet-500/5">
             <div class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-lg bg-violet-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                <Icon name={item.after.icon} class="w-4 h-4 text-violet-600" />
+              <div class="w-7 h-7 rounded-lg bg-violet-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name={item.after.icon} class="w-4 h-4 text-violet-400" />
               </div>
               <div>
-                <p class="text-[10px] font-medium text-violet-600 uppercase tracking-wider mb-0.5">Après</p>
-                <h4 class="text-sm font-semibold text-zinc-900 mb-1">{item.after.title}</h4>
-                <p class="text-xs text-zinc-500 leading-relaxed">{item.after.description}</p>
+                <p class="text-[10px] font-medium text-violet-400 uppercase tracking-wider mb-0.5">Après</p>
+                <h4 class="text-sm font-semibold text-white mb-1">{item.after.title}</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">{item.after.description}</p>
               </div>
             </div>
           </div>
@@ -169,8 +176,8 @@ const transformations = [
 
     <!-- Bottom hook -->
     <div class="mt-10 text-center">
-      <p class="text-lg text-zinc-600">
-        <span class="font-semibold text-zinc-900">Devenez l'architecte de votre automatisation.</span> Votre business devient <span class="text-violet-600 font-medium">une machine autonome</span>.
+      <p class="text-lg text-zinc-400">
+        <span class="font-semibold text-white">Devenez l'architecte de votre automatisation.</span> Votre business devient <span class="text-violet-400 font-medium">une machine autonome</span>.
       </p>
     </div>
   </div>
