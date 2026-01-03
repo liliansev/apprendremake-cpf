@@ -2,7 +2,7 @@
 // Hero section - Full-screen dark design with animated grid
 import CTAButton from "./CTAButton.astro";
 import GridBackground from "./ui/GridBackground.astro";
-import { Icon } from "astro-icon/components";
+import ScrollingLogos from "./ui/ScrollingLogos.astro";
 
 const features = [
     "+ de 100 vidéos",
@@ -192,40 +192,11 @@ const apps = [
         </div>
 
         <div class="pt-8 md:pt-10">
-            <p
-                class="text-center text-[10px] text-zinc-600 uppercase tracking-[0.2em] mb-6"
-            >
-                Connectez Make à + de 2000 applications
-            </p>
-
-            <!-- Scrolling logos -->
-            <div class="relative overflow-hidden">
-                <!-- Fade edges -->
-                <div
-                    class="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-zinc-950 to-transparent z-10"
-                >
-                </div>
-                <div
-                    class="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-zinc-950 to-transparent z-10"
-                >
-                </div>
-
-                <!-- Scrolling container - gap uniforme pour boucle infinie -->
-                <div class="flex items-center gap-8 md:gap-12 animate-scroll">
-                    {
-                        [...apps, ...apps].map((app) => (
-                            <div class="flex items-center gap-2 shrink-0">
-                                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400">
-                                    <Icon name={app.icon} class="w-4 h-4 md:w-5 md:h-5" />
-                                </div>
-                                <span class="text-xs md:text-sm font-medium text-zinc-500 whitespace-nowrap">
-                                    {app.name}
-                                </span>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+            <ScrollingLogos
+                items={apps}
+                title="Connectez Make à + de 2000 applications"
+                variant="dark"
+            />
         </div>
     </div>
 
@@ -272,23 +243,6 @@ const apps = [
         }
     }
 
-    /* Scroll animation for logos */
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-50%);
-        }
-    }
-
-    .animate-scroll {
-        animation: scroll 40s linear infinite;
-    }
-
-    .animate-scroll:hover {
-        animation-play-state: paused;
-    }
 </style>
 
 <script>

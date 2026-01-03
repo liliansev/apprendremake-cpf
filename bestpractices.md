@@ -57,32 +57,96 @@ Grille subtile pour fond dark mode :
 <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#09090b_70%)]"></div>
 ```
 
-### Stack d'icônes (Apps/Logos)
-Pour afficher des logos d'apps qui défilent :
+### ScrollingLogos (Bandeau de logos défilant)
+
+Composant réutilisable pour afficher des logos qui défilent en boucle infinie.
+
+**Fichier** : `src/components/ui/ScrollingLogos.astro`
+
+**Repo icônes** : https://simpleicons.org/
+
+#### Usage basique
+
 ```astro
-import { Icon } from "astro-icon/components";
+import ScrollingLogos from "@/components/ui/ScrollingLogos.astro";
 
 const apps = [
     { name: "Notion", icon: "simple-icons:notion" },
     { name: "Slack", icon: "simple-icons:slack" },
-    // ...
+    { name: "Stripe", icon: "simple-icons:stripe" },
+    { name: "Gmail", icon: "simple-icons:gmail" },
+    { name: "Shopify", icon: "simple-icons:shopify" },
+    { name: "Discord", icon: "simple-icons:discord" },
+    { name: "Figma", icon: "simple-icons:figma" },
+    { name: "OpenAI", icon: "simple-icons:openai" },
 ];
 
-<!-- Dupliquer le tableau pour boucle infinie -->
-{[...apps, ...apps].map((app) => (
-    <Icon name={app.icon} class="w-5 h-5" />
-))}
+<ScrollingLogos
+    items={apps}
+    title="Connectez à + de 2000 applications"
+/>
 ```
 
-Animation CSS pour scroll infini :
-```css
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.animate-scroll {
-    animation: scroll 40s linear infinite;
-}
+#### Props disponibles
+
+| Prop | Type | Défaut | Description |
+|------|------|--------|-------------|
+| `items` | `{ name: string, icon: string }[]` | **requis** | Liste des logos |
+| `title` | `string` | - | Titre au-dessus du bandeau |
+| `speed` | `number` | `40` | Durée animation en secondes |
+| `direction` | `"left" \| "right"` | `"left"` | Direction du défilement |
+| `showNames` | `boolean` | `true` | Afficher les noms |
+| `variant` | `"dark" \| "light"` | `"dark"` | Thème couleurs |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Taille des icônes |
+| `pauseOnHover` | `boolean` | `true` | Pause au survol |
+
+#### Exemples
+
+```astro
+<!-- Dark mode, taille moyenne (défaut) -->
+<ScrollingLogos items={apps} />
+
+<!-- Light mode, petite taille, sans noms -->
+<ScrollingLogos
+    items={apps}
+    variant="light"
+    size="sm"
+    showNames={false}
+/>
+
+<!-- Défilement vers la droite, plus rapide -->
+<ScrollingLogos
+    items={apps}
+    direction="right"
+    speed={25}
+/>
+
+<!-- Grande taille avec titre -->
+<ScrollingLogos
+    items={apps}
+    size="lg"
+    title="Nos partenaires"
+/>
+```
+
+#### Responsive
+
+- **Desktop** : taille complète, gap large, fade edges 40px
+- **Mobile** : taille réduite, gap compact, fade edges 24px, vitesse 60% (plus lent pour lisibilité)
+
+#### Comment ça marche
+
+1. Les items sont dupliqués (`[...items, ...items]`) pour créer une boucle infinie
+2. L'animation `translateX(-50%)` déplace le container de la moitié
+3. Comme les items sont dupliqués, ça crée l'illusion d'un scroll infini
+4. Les fade edges (gradients) masquent les bords pour un effet smooth
+
+```
+[Item1][Item2][Item3][Item1][Item2][Item3]
+       ←←←← translateX(-50%) ←←←←
+                    ↓
+[Item1][Item2][Item3][Item1][Item2][Item3]
+       Visuellement identique au départ
 ```
 
 ---
