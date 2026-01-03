@@ -321,6 +321,7 @@ Vitesse réduite sur mobile.
 
 ## Checklist d'implémentation
 
+- [ ] **20 logos minimum** (sinon tripler/quadrupler)
 - [ ] Container parent avec `overflow-hidden`
 - [ ] Items dupliqués (`[...items, ...items]`)
 - [ ] Items avec `shrink-0` (ne pas comprimer)
@@ -332,7 +333,78 @@ Vitesse réduite sur mobile.
 
 ---
 
+## Nombre minimum de logos
+
+### ⚠️ Important : 20 logos minimum recommandés
+
+Pour que l'animation fonctionne **sans voir les logos dupliqués** à l'écran, il faut suffisamment de logos pour remplir au moins 2x la largeur de l'écran.
+
+#### Pourquoi ?
+
+```
+Écran : [-------- 1920px --------]
+
+❌ 5 logos (trop peu) :
+[Logo1][Logo2][Logo3][Logo4][Logo5][Logo1][Logo2][Logo3][Logo4][Logo5]
+^--- visible à l'écran, on voit les doublons ---^
+
+✅ 20 logos (assez) :
+[Logo1][Logo2]...[Logo19][Logo20][Logo1][Logo2]...[Logo19][Logo20]
+^--- visible à l'écran ---^      ^--- hors écran ---^
+```
+
+#### Règle de calcul
+
+```
+Nombre minimum = (largeur écran max / largeur d'un logo) + marge
+
+Exemple :
+- Écran max : 1920px
+- Logo + gap : ~100px
+- Minimum : 1920 / 100 = ~20 logos
+```
+
+#### Solutions si tu as moins de 20 logos
+
+**Option 1** : Tripler ou quadrupler les items
+```js
+// Au lieu de doubler
+[...items, ...items]
+
+// Tripler
+[...items, ...items, ...items]
+
+// Quadrupler
+[...items, ...items, ...items, ...items]
+```
+
+**Option 2** : Réduire la vitesse (plus lent = moins visible)
+```html
+<ScrollingLogos items={items} speed={60} />
+```
+
+**Option 3** : Ajouter des logos "fillers"
+```js
+const items = [
+    // Tes vrais logos
+    { name: "Notion", icon: "simple-icons:notion" },
+    { name: "Slack", icon: "simple-icons:slack" },
+    // ...
+
+    // Logos complémentaires pour atteindre 20
+    { name: "GitHub", icon: "simple-icons:github" },
+    { name: "GitLab", icon: "simple-icons:gitlab" },
+    // ...
+];
+```
+
+---
+
 ## Erreurs courantes
+
+### ❌ On voit les logos dupliqués
+**Cause** : Pas assez de logos (moins de 20).
+**Fix** : Ajouter plus de logos ou tripler/quadrupler la liste.
 
 ### ❌ L'animation saute/glitch
 **Cause** : Les items ne sont pas dupliqués.
