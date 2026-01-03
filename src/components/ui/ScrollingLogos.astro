@@ -90,8 +90,9 @@ const sizes = {
 const s = styles[variant];
 const sz = sizes[size];
 
-// ID unique pour les keyframes
-const uniqueId = `scroll-${Math.random().toString(36).slice(2, 9)}`;
+// Direction class
+const directionClass = direction === "right" ? "scroll-right" : "scroll-left";
+const pauseClass = pauseOnHover ? "pause-on-hover" : "";
 ---
 
 <div class="relative overflow-hidden">
@@ -114,11 +115,8 @@ const uniqueId = `scroll-${Math.random().toString(36).slice(2, 9)}`;
 
         <!-- Container scrolling -->
         <div
-            class={`flex items-center ${sz.gap} scrolling-logos`}
-            data-speed={speed}
-            data-direction={direction}
-            data-pause={pauseOnHover}
-            style={`animation: ${uniqueId} ${speed}s linear infinite;`}
+            class={`flex items-center ${sz.gap} scrolling-logos ${directionClass} ${pauseClass}`}
+            style={`--scroll-speed: ${speed}s;`}
         >
             {/* Double les items pour boucle infinie */}
             {[...items, ...items].map((item) => (
@@ -139,35 +137,39 @@ const uniqueId = `scroll-${Math.random().toString(36).slice(2, 9)}`;
     </div>
 </div>
 
-<style define:vars={{ uniqueId, direction }}>
-    @keyframes scroll-left {
+<style>
+    @keyframes scroll-to-left {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
     }
 
-    @keyframes scroll-right {
+    @keyframes scroll-to-right {
         0% { transform: translateX(-50%); }
         100% { transform: translateX(0); }
     }
 
     .scrolling-logos {
-        animation-name: scroll-left;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        animation-duration: var(--scroll-speed, 40s);
     }
 
-    .scrolling-logos[data-direction="right"] {
-        animation-name: scroll-right;
+    .scrolling-logos.scroll-left {
+        animation-name: scroll-to-left;
     }
 
-    .scrolling-logos[data-pause="true"]:hover {
+    .scrolling-logos.scroll-right {
+        animation-name: scroll-to-right;
+    }
+
+    .scrolling-logos.pause-on-hover:hover {
         animation-play-state: paused;
     }
 
-    /* Réduire la vitesse sur mobile pour lisibilité */
+    /* Mobile : vitesse réduite pour lisibilité */
     @media (max-width: 768px) {
         .scrolling-logos {
-            animation-duration: calc(var(--speed, 40) * 0.6s);
+            animation-duration: calc(var(--scroll-speed, 40s) * 0.7);
         }
     }
 </style>

@@ -149,6 +149,131 @@ const apps = [
        Visuellement identique au départ
 ```
 
+#### Code CSS de l'animation
+
+```css
+@keyframes scroll-to-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-to-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.scrolling-logos {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: var(--scroll-speed, 40s);
+}
+
+.scrolling-logos.scroll-left {
+    animation-name: scroll-to-left;
+}
+
+.scrolling-logos.scroll-right {
+    animation-name: scroll-to-right;
+}
+
+.scrolling-logos.pause-on-hover:hover {
+    animation-play-state: paused;
+}
+
+/* Mobile : vitesse réduite pour lisibilité */
+@media (max-width: 768px) {
+    .scrolling-logos {
+        animation-duration: calc(var(--scroll-speed, 40s) * 0.7);
+    }
+}
+```
+
+#### Structure HTML générée
+
+```html
+<div class="relative overflow-hidden">
+    <!-- Titre optionnel -->
+    <p class="text-center text-[10px] uppercase tracking-[0.2em] mb-6">
+        Titre du bandeau
+    </p>
+
+    <div class="relative overflow-hidden">
+        <!-- Fade gauche -->
+        <div class="absolute left-0 top-0 bottom-0 w-24 md:w-40
+                    bg-gradient-to-r from-zinc-950 to-transparent z-10">
+        </div>
+
+        <!-- Fade droite -->
+        <div class="absolute right-0 top-0 bottom-0 w-24 md:w-40
+                    bg-gradient-to-l from-zinc-950 to-transparent z-10">
+        </div>
+
+        <!-- Container scrolling -->
+        <div class="flex items-center gap-8 md:gap-12
+                    scrolling-logos scroll-left pause-on-hover"
+             style="--scroll-speed: 40s;">
+            <!-- Items dupliqués pour boucle infinie -->
+            <div class="flex items-center gap-2 shrink-0">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg
+                            bg-zinc-900 border border-zinc-800
+                            flex items-center justify-center text-zinc-400">
+                    <svg><!-- Icône --></svg>
+                </div>
+                <span class="text-xs md:text-sm font-medium text-zinc-500">
+                    Nom
+                </span>
+            </div>
+            <!-- ... répéter pour chaque item x2 -->
+        </div>
+    </div>
+</div>
+```
+
+#### Implémentation manuelle (sans composant)
+
+Si tu veux implémenter le scroll sans le composant :
+
+```astro
+---
+const items = [
+    { name: "Notion", icon: "simple-icons:notion" },
+    { name: "Slack", icon: "simple-icons:slack" },
+    // ...
+];
+---
+
+<div class="relative overflow-hidden">
+    <!-- Fades -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 md:w-40
+                bg-gradient-to-r from-zinc-950 to-transparent z-10"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 md:w-40
+                bg-gradient-to-l from-zinc-950 to-transparent z-10"></div>
+
+    <!-- Scrolling container -->
+    <div class="flex items-center gap-8 animate-scroll">
+        {[...items, ...items].map((item) => (
+            <div class="flex items-center gap-2 shrink-0">
+                <Icon name={item.icon} class="w-5 h-5" />
+                <span class="text-sm">{item.name}</span>
+            </div>
+        ))}
+    </div>
+</div>
+
+<style>
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-scroll {
+        animation: scroll 40s linear infinite;
+    }
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+</style>
+```
+
 ---
 
 ## Patterns d'animation
