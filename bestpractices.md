@@ -65,6 +65,167 @@ Composant réutilisable pour afficher des logos qui défilent en boucle infinie.
 
 **Repo icônes** : https://simpleicons.org/
 
+**Dépendances requises** :
+```bash
+pnpm add astro-icon @iconify-json/simple-icons
+```
+
+#### Code complet du composant
+
+Créer le fichier `src/components/ui/ScrollingLogos.astro` :
+
+```astro
+---
+/**
+ * ScrollingLogos - Bandeau de logos défilant en boucle infinie
+ * Dépendances: astro-icon, @iconify-json/simple-icons
+ */
+import { Icon } from "astro-icon/components";
+
+interface LogoItem {
+    name: string;
+    icon: string;
+}
+
+interface Props {
+    items: LogoItem[];
+    title?: string;
+    speed?: number;
+    direction?: "left" | "right";
+    showNames?: boolean;
+    variant?: "dark" | "light";
+    size?: "sm" | "md" | "lg";
+    pauseOnHover?: boolean;
+}
+
+const {
+    items,
+    title,
+    speed = 40,
+    direction = "left",
+    showNames = true,
+    variant = "dark",
+    size = "md",
+    pauseOnHover = true,
+} = Astro.props;
+
+const styles = {
+    dark: {
+        fadeBg: "from-zinc-950",
+        iconBg: "bg-zinc-900",
+        iconBorder: "border-zinc-800",
+        iconColor: "text-zinc-400",
+        textColor: "text-zinc-500",
+        titleColor: "text-zinc-600",
+    },
+    light: {
+        fadeBg: "from-white",
+        iconBg: "bg-zinc-100",
+        iconBorder: "border-zinc-200",
+        iconColor: "text-zinc-600",
+        textColor: "text-zinc-600",
+        titleColor: "text-zinc-400",
+    },
+};
+
+const sizes = {
+    sm: {
+        icon: "w-6 h-6 md:w-8 md:h-8",
+        iconInner: "w-3 h-3 md:w-4 md:h-4",
+        text: "text-[10px] md:text-xs",
+        gap: "gap-6 md:gap-8",
+        fade: "w-16 md:w-24",
+    },
+    md: {
+        icon: "w-8 h-8 md:w-10 md:h-10",
+        iconInner: "w-4 h-4 md:w-5 md:h-5",
+        text: "text-xs md:text-sm",
+        gap: "gap-8 md:gap-12",
+        fade: "w-24 md:w-40",
+    },
+    lg: {
+        icon: "w-10 h-10 md:w-12 md:h-12",
+        iconInner: "w-5 h-5 md:w-6 md:h-6",
+        text: "text-sm md:text-base",
+        gap: "gap-10 md:gap-14",
+        fade: "w-32 md:w-48",
+    },
+};
+
+const s = styles[variant];
+const sz = sizes[size];
+const directionClass = direction === "right" ? "scroll-right" : "scroll-left";
+const pauseClass = pauseOnHover ? "pause-on-hover" : "";
+---
+
+<div class="relative overflow-hidden">
+    {title && (
+        <p class={`text-center text-[10px] uppercase tracking-[0.2em] mb-6 ${s.titleColor}`}>
+            {title}
+        </p>
+    )}
+
+    <div class="relative overflow-hidden">
+        <div class={`absolute left-0 top-0 bottom-0 ${sz.fade} bg-gradient-to-r ${s.fadeBg} to-transparent z-10 pointer-events-none`}></div>
+        <div class={`absolute right-0 top-0 bottom-0 ${sz.fade} bg-gradient-to-l ${s.fadeBg} to-transparent z-10 pointer-events-none`}></div>
+
+        <div
+            class={`flex items-center ${sz.gap} scrolling-logos ${directionClass} ${pauseClass}`}
+            style={`--scroll-speed: ${speed}s;`}
+        >
+            {[...items, ...items].map((item) => (
+                <div class="flex items-center gap-2 shrink-0">
+                    <div class={`${sz.icon} rounded-lg ${s.iconBg} border ${s.iconBorder} flex items-center justify-center ${s.iconColor}`}>
+                        <Icon name={item.icon} class={sz.iconInner} />
+                    </div>
+                    {showNames && (
+                        <span class={`${sz.text} font-medium ${s.textColor} whitespace-nowrap`}>
+                            {item.name}
+                        </span>
+                    )}
+                </div>
+            ))}
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes scroll-to-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    @keyframes scroll-to-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+
+    .scrolling-logos {
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: var(--scroll-speed, 40s);
+    }
+
+    .scrolling-logos.scroll-left {
+        animation-name: scroll-to-left;
+    }
+
+    .scrolling-logos.scroll-right {
+        animation-name: scroll-to-right;
+    }
+
+    .scrolling-logos.pause-on-hover:hover {
+        animation-play-state: paused;
+    }
+
+    @media (max-width: 768px) {
+        .scrolling-logos {
+            animation-duration: calc(var(--scroll-speed, 40s) * 0.7);
+        }
+    }
+</style>
+```
+
 #### Usage basique
 
 ```astro
