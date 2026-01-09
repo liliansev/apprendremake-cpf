@@ -18,15 +18,15 @@ import GridBackground from "./ui/GridBackground.astro";
         <!-- Header -->
         <div class="text-center mb-12">
             <p
-                class="text-violet-400 text-xs font-medium tracking-wider uppercase mb-3"
+                class="text-emerald-400 text-xs font-medium tracking-wider uppercase mb-3"
             >
-                Investissement
+                Financement CPF
             </p>
             <h2 class="text-2xl md:text-4xl font-semibold text-white mb-4">
-                Combien valent 10h/semaine de votre temps ?
+                Investissez dans votre avenir,<br class="hidden sm:block" />pas dans votre portefeuille
             </h2>
             <p class="text-zinc-400 text-sm md:text-base max-w-lg mx-auto">
-                À 50€/h, c'est 500€ économisés chaque semaine.
+                Votre reconversion ne devrait pas vous coûter un euro. Utilisez votre CPF pour financer 100% de la formation.
             </p>
         </div>
 
@@ -38,7 +38,7 @@ import GridBackground from "./ui/GridBackground.astro";
                 <!-- Popular badge -->
                 <div class="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span
-                        class="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-violet-600 px-4 py-1.5 rounded-full shadow-lg shadow-violet-500/25"
+                        class="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-emerald-600 px-4 py-1.5 rounded-full shadow-lg shadow-emerald-500/25"
                     >
                         <svg
                             class="w-3.5 h-3.5"
@@ -50,7 +50,7 @@ import GridBackground from "./ui/GridBackground.astro";
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        Formation complète
+                        Éligible CPF · RS6228
                     </span>
                 </div>
 
@@ -58,52 +58,52 @@ import GridBackground from "./ui/GridBackground.astro";
                 <div class="text-center mt-4 mb-6">
                     <div class="flex items-baseline justify-center gap-2">
                         <span
-                            class="text-5xl md:text-6xl font-bold text-white"
-                            >499€</span
+                            class="text-5xl md:text-6xl font-bold text-emerald-400"
+                            >0€</span
                         >
-                        <span class="text-zinc-500 text-sm">HT</span>
+                        <span class="text-zinc-500 text-sm">pour vous</span>
                     </div>
-                    <p class="text-sm text-violet-400 mt-2 font-medium">
-                        Accès à vie · Mises à jour incluses
+                    <p class="text-sm text-zinc-400 mt-2 font-medium">
+                        100% pris en charge par votre CPF
                     </p>
                 </div>
 
                 <!-- Benefits -->
                 <div class="space-y-3 mb-6">
                     {[
-                        "+ de 100 vidéos",
-                        "Projets réels étape par étape",
-                        "Exercices corrigés + Quiz",
-                        "Templates & scénarios prêts à l'emploi",
-                        "Communauté privée + support",
-                        "Mises à jour à vie",
+                        "+ de 100 vidéos détaillées",
+                        "Projets pratiques corrigés",
+                        "Certification Make partenaire",
+                        "Attestation de fin de formation",
+                        "Support par email 7j/7",
+                        "Accès 24h/24 · 7j/7",
                     ].map((benefit) => (
                         <div class="flex items-center gap-3">
-                            <div class="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0">
-                                <svg class="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                                <svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-sm text-zinc-300">{benefit}</span>
+                            <span class="sm text-zinc-300">{benefit}</span>
                         </div>
                     ))}
                 </div>
 
                 <!-- Bonus -->
                 <div class="space-y-2 mb-8 pt-4 border-t border-zinc-800">
-                    <p class="text-xs font-medium text-amber-400 uppercase tracking-wider mb-3">+ Bonus inclus</p>
+                    <p class="text-xs font-medium text-emerald-400 uppercase tracking-wider mb-3">+ Inclus</p>
                     {[
-                        "10 000 opérations Make offertes",
-                        "Projets issus de vrais cas clients",
                         "Module Make + IA (ChatGPT, Claude)",
+                        "Templates automation prêts à l'emploi",
+                        "Accès communauté privée",
                     ].map((bonus) => (
                         <div class="flex items-center gap-3">
-                            <div class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
-                                <svg class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                                <svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-sm text-amber-200/80">{bonus}</span>
+                            <span class="sm text-emerald-200/80">{bonus}</span>
                         </div>
                     ))}
                 </div>
@@ -111,15 +111,17 @@ import GridBackground from "./ui/GridBackground.astro";
                 <!-- CTA -->
                 <CTAButton
                     href="https://lilian.yt/paiementmake?ref=siteweb"
+                    text="Créer mon compte CPF"
+                    variant="cpf"
                     fullWidth={true}
                     id="pricing-cta"
                 />
 
                 <p class="text-center text-xs text-zinc-500 mt-4">
-                    Paiement sécurisé · Accès immédiat
+                    Inscription en 2 minutes ·prise en charge à 100%
                 </p>
                 <p class="text-center text-[10px] text-zinc-600 mt-2">
-                    TVA non applicable (Art. 293 B du CGI)
+                    Formation déclarée sous le code RS6228
                 </p>
             </div>
         </div>
@@ -129,49 +131,26 @@ import GridBackground from "./ui/GridBackground.astro";
             class="flex flex-wrap items-center justify-center gap-6 mt-10 text-zinc-500 text-xs"
         >
             <div class="flex items-center gap-2">
-                <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                    ></path>
+                <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
-                <span>Paiement sécurisé</span>
+                <span>100% financé CPF</span>
             </div>
             <div class="flex items-center gap-2">
-                <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                    ></path>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                 </svg>
-                <span>Garantie 30 jours</span>
+                <span>Certification RS6228</span>
             </div>
             <div class="flex items-center gap-2">
-                <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Inscription 2 min</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
                 <span>Accès immédiat</span>
             </div>

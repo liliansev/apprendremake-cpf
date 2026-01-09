@@ -1,58 +1,59 @@
 ---
-// About section - Timeline story
+// About section - Timeline story with reconversion angle
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import LightGridBackground from './ui/LightGridBackground.astro';
+import CTAButton from './CTAButton.astro';
 import lilianImage from '../assets/lilian.jpg';
 
 const timeline = [
   {
     year: "2021",
     title: "Premiers pas sur Integromat",
-    subtitle: "Premiers clients",
-    description: "Je découvre Integromat (l'ancêtre de Make) et je décroche mes premiers clients freelance.",
-    highlight: "Aucune formation en français, j'apprends seul."
+    subtitle: "Autodidacte",
+    description: "Je découvre Integromat (l'ancêtre de Make) sans aucune formation. J'apprends seul, je galère, je persévère.",
+    highlight: "Aucune ressource en français à l'époque."
   },
   {
     year: "2022",
-    title: "Le rebranding Make",
-    subtitle: "JellySmack",
-    description: "Integromat devient Make. Je rejoins JellySmack dans une équipe d'experts no-code internationaux.",
-    highlight: "Je deviens le 1er Français certifié Make Partner & Trainer."
+    title: "Make Partner & Trainer",
+    subtitle: "Reconnu par Make",
+    description: "Integromat devient Make. Je deviens le 1er Français certifié Make Partner & Trainer.",
+    highlight: "La reconnaissance officielle de mon expertise."
   },
   {
     year: "2023",
-    title: "La Capsule",
-    subtitle: "Mon studio podcast",
-    description: "Je crée La Capsule, mon studio de podcast, et j'automatise absolument tout ce qui peut l'être.",
-    highlight: "L'entreprise tourne en pilote automatique."
+    title: "150+ projets livrés",
+    subtitle: "Expertise terrain",
+    description: "Je crée mon studio et j'automatise des dizaines d'entreprises. Des erreurs, des réussites, des apprentissages.",
+    highlight: "Des centaines d'heures de pratique condensées."
   },
   {
     year: "2024",
-    title: "150+ projets livrés",
-    subtitle: "Certifications 4 & 5",
-    description: "J'obtiens les certifications les plus hautes de Make. Je condense 4 années d'erreurs et de réussites.",
-    highlight: "Cette formation naît de tout ce parcours."
+    title: "Certification RS6228",
+    subtitle: "Formation CPF",
+    description: "Je structure tout ce que j'ai appris dans une formation certifiante éligible CPF.",
+    highlight: "Pour que vous n'ayez pas à galérer comme moi."
   },
   {
     year: "2025",
-    title: "Open source & 300 élèves",
-    subtitle: "Apprendre Make",
-    description: "Je découvre l'open source et je lance cette formation. Plus de 300 élèves formés sur Make.",
-    highlight: "La communauté grandit chaque jour."
+    title: "300+ personnes formées",
+    subtitle: "Reconversions réussies",
+    description: "Des salariés, des demandeurs d'emploi, des reconversions... Tous ont trouvé leur voie grâce à Make.",
+    highlight: "La prochaine success story, c'est la vôtre."
   },
   {
-    year: "2026",
-    title: "À vous de jouer",
-    subtitle: "Votre histoire",
+    year: "→",
+    title: "Votre tour",
+    subtitle: "Votre reconversion",
     description: "Cette timeline ne s'arrête pas là. La prochaine ligne, c'est vous qui l'écrivez.",
-    highlight: "Votre success story commence ici.",
+    highlight: "Je serai là pour vous accompagner.",
     isYou: true
   }
 ];
 ---
 
-<section class="relative py-16 md:py-24 bg-neutral-50/50 overflow-hidden">
+<section class="relative py-16 md:py-24 bg-neutral-50 overflow-hidden">
   <LightGridBackground opacity={5} />
   <div class="relative max-w-5xl mx-auto px-4 md:px-6">
     <!-- Header avec photo -->
@@ -60,27 +61,28 @@ const timeline = [
       <!-- Photo + Badges -->
       <div class="lg:col-span-1">
         <div class="lg:sticky lg:top-24">
-          <div class="aspect-[4/5] max-w-[220px] mx-auto lg:mx-0 rounded-2xl overflow-hidden mb-4 shadow-xl shadow-zinc-900/20">
+          <div class="aspect-[4/5] max-w-[220px] mx-auto lg:mx-0 rounded-2xl overflow-hidden mb-4 shadow-xl shadow-zinc-900/10">
             <Image
               src={lilianImage}
-              alt="Lilian au No Code Summit"
+              alt="Lilian, formateur Make certifié Partner & Trainer, expert en automatisation no-code"
               class="w-full h-full object-cover object-top"
               width={440}
               height={550}
               quality={85}
+              loading="lazy"
             />
           </div>
           <!-- Certifications -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 max-w-[220px] mx-auto lg:mx-0">
-            <span class="inline-flex items-center gap-1 text-violet-600 text-[10px] font-semibold px-2 py-1 rounded-full bg-violet-500/10 border border-violet-500/20">
+            <span class="inline-flex items-center gap-1 text-violet-600 text-[10px] font-semibold px-2 py-1 rounded-full bg-violet-100 border border-violet-200">
               <Icon name="lucide:badge-check" class="w-3 h-3" />
               Partner
             </span>
-            <span class="inline-flex items-center gap-1 text-violet-600 text-[10px] font-semibold px-2 py-1 rounded-full bg-violet-500/10 border border-violet-500/20">
+            <span class="inline-flex items-center gap-1 text-violet-600 text-[10px] font-semibold px-2 py-1 rounded-full bg-violet-100 border border-violet-200">
               <Icon name="lucide:badge-check" class="w-3 h-3" />
               Trainer
             </span>
-            <span class="inline-flex items-center gap-1 text-violet-600 text-[10px] font-semibold px-2 py-1 rounded-full bg-violet-500/10 border border-violet-500/20">
+            <span class="inline-flex items-center gap-1 text-violet-600 text-[10px] font-semibold px-2 py-1 rounded-full bg-violet-100 border border-violet-200">
               <Icon name="lucide:badge-check" class="w-3 h-3" />
               Certif. 4&5
             </span>
@@ -92,40 +94,40 @@ const timeline = [
       <div class="lg:col-span-2">
         <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Votre formateur</p>
         <h2 class="text-2xl md:text-3xl font-semibold text-zinc-900 mb-4">
-          J'ai passé 4 ans à dompter l'outil<br class="hidden sm:block" />
-          <span class="text-zinc-400">pour vous offrir le raccourci.</span>
+          J'ai galéré pendant 4 ans<br class="hidden sm:block" />
+          <span class="text-zinc-400">pour que vous n'ayez pas à le faire.</span>
         </h2>
 
         <!-- Quote simple -->
         <blockquote class="border-l-4 border-violet-500 pl-4 py-2 mb-8">
           <p class="text-zinc-600 italic">
-            « Mon objectif ? Que vous n'ayez jamais à vivre les nuits blanches que j'ai vécues. »
+            « La reconversion fait peur. Mon rôle, c'est de vous montrer que c'est possible — et de vous accompagner jusqu'au bout. »
           </p>
         </blockquote>
 
         <!-- Timeline simple -->
         <div class="relative">
           <!-- Ligne verticale -->
-          <div class="absolute left-[23px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-violet-500 via-violet-400 to-violet-300 hidden md:block"></div>
+          <div class="absolute left-[23px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-violet-500 via-violet-400 to-emerald-400 hidden md:block"></div>
 
           <div class="space-y-4 md:space-y-6">
             {timeline.map((item) => (
-              <div class={`group relative flex gap-4 md:gap-6 p-3 -mx-3 rounded-xl transition-all duration-200 cursor-default ${item.isYou ? 'bg-violet-50 hover:bg-violet-100/80' : 'hover:bg-white/60 hover:shadow-sm'}`}>
+              <div class={`group relative flex gap-4 md:gap-6 p-3 -mx-3 rounded-xl transition-all duration-200 cursor-default ${item.isYou ? 'bg-emerald-50 hover:bg-emerald-100/80' : 'hover:bg-white/60 hover:shadow-sm'}`}>
                 <!-- Year badge -->
-                <div class={`shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-xs md:text-sm z-10 transition-transform duration-200 group-hover:scale-105 ${item.isYou ? 'bg-violet-600 text-white' : 'bg-zinc-900 text-white'}`}>
-                  {item.isYou ? '→' : item.year}
+                <div class={`shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-xs md:text-sm z-10 transition-transform duration-200 group-hover:scale-105 ${item.isYou ? 'bg-emerald-500 text-white' : 'bg-violet-600 text-white'}`}>
+                  {item.year}
                 </div>
 
                 <!-- Content -->
                 <div class="flex-1 min-w-0">
                   <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
-                    <h3 class={`text-base md:text-lg font-bold ${item.isYou ? 'text-violet-700' : 'text-zinc-900'}`}>{item.title}</h3>
-                    <span class="text-xs text-violet-600 font-medium">— {item.subtitle}</span>
+                    <h3 class={`text-base md:text-lg font-bold ${item.isYou ? 'text-emerald-700' : 'text-zinc-900'}`}>{item.title}</h3>
+                    <span class={`text-xs font-medium ${item.isYou ? 'text-emerald-600' : 'text-violet-600'}`}>— {item.subtitle}</span>
                   </div>
-                  <p class={`text-sm leading-relaxed mb-1.5 ${item.isYou ? 'text-violet-600/70' : 'text-zinc-400'}`}>
+                  <p class={`text-sm leading-relaxed mb-1.5 ${item.isYou ? 'text-emerald-600/70' : 'text-zinc-500'}`}>
                     {item.description}
                   </p>
-                  <p class={`text-sm font-semibold ${item.isYou ? 'text-violet-700' : 'text-zinc-700'}`}>
+                  <p class={`text-sm font-semibold ${item.isYou ? 'text-emerald-700' : 'text-zinc-700'}`}>
                     {item.highlight}
                   </p>
                 </div>
@@ -137,25 +139,26 @@ const timeline = [
     </div>
 
     <!-- Conclusion -->
-    <div class="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl p-6 md:p-8 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-5">
+    <div class="bg-gradient-to-br from-violet-600 to-violet-700 rounded-2xl p-6 md:p-8 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
       </div>
 
       <div class="relative text-center">
-        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-violet-500/20 mb-4">
-          <Icon name="lucide:clock" class="w-6 h-6 text-violet-400" />
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 mb-4">
+          <Icon name="lucide:users" class="w-6 h-6 text-white" />
         </div>
         <h3 class="text-lg md:text-xl font-semibold text-white mb-3">
-          Ce que vous achetez, c'est mon temps.
+          Je vous accompagne de A à Z
         </h3>
-        <p class="text-zinc-400 max-w-2xl mx-auto mb-4">
-          En rejoignant cette formation, vous ne payez pas pour des vidéos.<br class="hidden sm:block" />
-          Vous investissez pour <span class="text-white font-medium">sauter l'étape de la frustration</span>.
+        <p class="text-violet-100 max-w-2xl mx-auto mb-4">
+          Vous n'êtes pas seul. Questions techniques, doutes, blocages...<br class="hidden sm:block" />
+          Je suis là pour vous <span class="text-white font-medium">guider jusqu'à votre reconversion réussie</span>.
         </p>
-        <p class="text-sm text-zinc-500 max-w-xl mx-auto">
-          Après ma formation, vous aurez le <span class="text-violet-400 font-medium">« réflexe chirurgical »</span> : la méthode exacte pour transformer n'importe quelle idée en système automatisé.
+        <p class="text-sm text-violet-200 max-w-xl mx-auto mb-6">
+          80% de mes élèves n'avaient <span class="text-white font-medium">aucun background technique</span>. Aujourd'hui, ils maîtrisent Make.
         </p>
+        <CTAButton href="#pricing" text="Rejoindre la formation" variant="light" />
       </div>
     </div>
   </div>

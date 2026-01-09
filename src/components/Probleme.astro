@@ -1,48 +1,48 @@
 ---
-// Probleme section - Premium design with gradient icons
+// Probleme section - Pain points reconversion
 import { Icon } from 'astro-icon/components';
 import LightGridBackground from './ui/LightGridBackground.astro';
 
 const problems = [
   {
-    icon: "lucide:repeat",
-    iconBg: "from-violet-500 to-violet-600",
-    title: "L'esclavage du copier-coller",
-    description: "Copier-coller entre vos applications, relances emails, exports quotidiens, créer vos factures.. Des heures perdues chaque semaine."
+    icon: "lucide:frown",
+    iconBg: "from-zinc-600 to-zinc-700",
+    title: "Ce job qui vous vide un peu plus chaque jour",
+    description: "Le dimanche soir, cette boule au ventre. L'impression de gâcher votre potentiel dans un travail qui ne vous ressemble plus. Vous savez que vous valez mieux."
   },
   {
-    icon: "lucide:brain",
+    icon: "lucide:shield-question",
     iconBg: "from-amber-500 to-amber-600",
-    title: "Le cerveau en surchauffe",
-    description: "Jongler entre 10 outils, se souvenir de tout, ne rien oublier. Cette surcharge vous épuise."
+    title: "La peur qui vous paralyse depuis des mois",
+    description: "« Trop vieux », « pas assez technique », « et si j'échouais ? »... Ces doutes tournent en boucle. Pendant ce temps, d'autres se lancent. Et vous, vous attendez."
   },
   {
-    icon: "lucide:trending-down",
+    icon: "lucide:wallet",
     iconBg: "from-rose-500 to-rose-600",
-    title: "La prison de l'opérationnel",
-    description: "Plus de clients = plus de tâches manuelles. Vous êtes bloqué dans l'opérationnel au lieu de développer."
+    title: "Des formations à 5 000€ que vous ne pouvez pas vous offrir",
+    description: "Les vraies formations coûtent une fortune. Bootcamps, écoles... C'est comme si la reconversion était réservée à ceux qui ont les moyens."
   }
 ];
 ---
 
-<section class="relative py-20 md:py-28 bg-white overflow-hidden">
+<section class="relative py-20 md:py-28 bg-neutral-50 overflow-hidden">
   <LightGridBackground opacity={5} />
   <div class="relative max-w-6xl mx-auto px-4 md:px-6">
     <!-- Header -->
     <div class="text-center mb-12">
-      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Le problème</p>
+      <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Le constat</p>
       <h2 class="text-2xl md:text-4xl font-semibold text-zinc-900 mb-4">
-        Chaque jour, vous perdez plusieurs heures<br class="hidden md:block"/> sur des tâches automatisables
+        Vous reconnaissez-vous ?
       </h2>
       <p class="text-zinc-500 max-w-xl mx-auto">
-        Ces problèmes semblent anodins. Mais multipliés par 365 jours, ils freinent votre croissance.
+        Beaucoup rêvent de changer de métier. Mais combien osent vraiment se lancer ?
       </p>
     </div>
 
     <!-- Problems Grid - 3 cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
       {problems.map((problem) => (
-        <div class="group p-6 rounded-2xl bg-neutral-50 border border-zinc-100 hover:border-zinc-200 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+        <div class="group p-6 rounded-2xl bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
           <!-- Icon in gradient circle -->
           <div class="mb-5">
             <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${problem.iconBg} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200`}>
@@ -62,10 +62,10 @@ const problems = [
     <!-- Bottom message -->
     <div class="mt-12 text-center space-y-3">
       <p class="text-lg md:text-xl text-zinc-600">
-        <span class="font-semibold text-zinc-900">Make automatise tout ça.</span> Sans code. Sans prise de tête.
+        <span class="font-semibold text-emerald-600">Et si votre CPF pouvait tout changer ?</span>
       </p>
       <p class="text-base md:text-lg text-zinc-500">
-        <span class="font-medium text-zinc-700">Je vous enseignerai tout</span> — de A à Z.
+        Une formation certifiante, <span class="font-medium text-zinc-700">100% financée</span>, pour un métier d'avenir.
       </p>
     </div>
   </div>

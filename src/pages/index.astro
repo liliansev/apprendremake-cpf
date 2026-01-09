@@ -11,22 +11,29 @@ import TemoignagesTop from "../components/TemoignagesTop.astro";
 import Pricing from "../components/Pricing.astro";
 import TemoignagesBottom from "../components/TemoignagesBottom.astro";
 import FAQ from "../components/FAQ.astro";
+import CTAFinal from "../components/CTAFinal.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="Apprendre Make - Formation complète pour maîtriser l'automatisation">
+<Layout title="Apprendre Make - Formation éligible CPF">
   <Navbar />
-  <main class="min-h-screen">
-    <Hero />
-    <Probleme />
-    <Transformation />
-    <About />
-    <Cible />
-    <Programme />
-    <TemoignagesTop />
-    <Pricing />
-    <TemoignagesBottom />
-    <FAQ />
+  <main class="min-h-screen" itemscope itemtype="https://schema.org/WebPage">
+    <article itemscope itemtype="https://schema.org/Course">
+      <meta itemprop="name" content="Formation Make - Automatisation No-Code" />
+      <meta itemprop="description" content="Formation certifiante RS6228 pour apprendre Make. Reconvertissez-vous dans l'automatisation no-code. 100% financé par le CPF." />
+      <meta itemprop="provider" content="Apprendre Make" />
+      <Hero />
+      <Probleme />
+      <Transformation />
+      <About />
+      <Cible />
+      <Programme />
+      <TemoignagesTop />
+      <Pricing />
+      <TemoignagesBottom />
+      <FAQ />
+      <CTAFinal />
+    </article>
   </main>
   <Footer />
 </Layout>

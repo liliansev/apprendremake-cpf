@@ -1,76 +1,76 @@
 ---
-// Transformation section - "The Gap" - Before/After emotional journey (DARK)
+// Transformation section - "The Gap" - Before/After reconversion journey (DARK accent)
 import { Icon } from 'astro-icon/components';
 import GridBackground from "./ui/GridBackground.astro";
 
 const transformations = [
   {
     before: {
-      icon: "lucide:bug",
-      title: "L'enfer du débuggage",
-      description: "Un scénario qui plante, une erreur 400 incompréhensible... et personne pour t'aider."
+      icon: "lucide:frown",
+      title: "Un job sans passion",
+      description: "Les journées se ressemblent. Vous faites le minimum, en attendant que quelque chose change."
     },
     after: {
-      icon: "lucide:zap",
-      title: "Le réflexe chirurgical",
-      description: "Tu résous n'importe quelle erreur en 2 minutes. Tes automatisations tournent à 100%."
+      icon: "lucide:smile",
+      title: "La motivation retrouvée",
+      description: "Vous vous levez avec envie. Chaque projet est un défi stimulant qui vous fait grandir."
     }
   },
   {
     before: {
-      icon: "lucide:wallet",
-      title: "La taxe \"Expert\"",
-      description: "Payer un consultant 100€/h dès que tu veux ajouter une étape complexe à ton système."
+      icon: "lucide:lock",
+      title: "Revenus plafonnés",
+      description: "Votre salaire stagne. Les augmentations sont rares et les perspectives limitées."
     },
     after: {
-      icon: "lucide:crown",
-      title: "L'autonomie totale",
-      description: "0€ dépensé en consultants. Tu es le seul maître à bord de tes systèmes les plus complexes."
+      icon: "lucide:trending-up",
+      title: "Potentiel illimité",
+      description: "Vous fixez vos tarifs. Plus vous progressez, plus vous gagnez. Pas de plafond de verre."
     }
   },
   {
     before: {
-      icon: "lucide:alert-triangle",
-      title: "La boule au ventre",
-      description: "Cette peur de \"tout casser\" dès que tu touches à un scénario en production."
+      icon: "lucide:building-2",
+      title: "Dépendance employeur",
+      description: "Votre avenir dépend des décisions d'autres. Un plan social peut tout remettre en question."
     },
     after: {
-      icon: "lucide:shield-check",
-      title: "La sérénité du scale",
-      description: "Tes systèmes tiennent la charge. Tu multiplies tes clients sans stress."
+      icon: "lucide:compass",
+      title: "Liberté professionnelle",
+      description: "Vous choisissez vos clients, vos horaires, vos projets. Votre carrière vous appartient."
     }
   },
   {
     before: {
-      icon: "lucide:clock",
-      title: "Le temps qui file",
-      description: "Des heures perdues chaque semaine sur des tâches répétitives que tu pourrais automatiser."
+      icon: "lucide:help-circle",
+      title: "Peur de l'inconnu",
+      description: "Se reconvertir semble risqué. Et si vous n'étiez pas fait pour ça ? Et si vous échouiez ?"
     },
     after: {
-      icon: "lucide:rocket",
-      title: "La machine à résultats",
-      description: "Tes processus tournent en pilote automatique. Ton business grandit pendant que tu dors."
+      icon: "lucide:trophy",
+      title: "Confiance en vos compétences",
+      description: "Vous maîtrisez un outil demandé. Vos compétences sont concrètes et recherchées."
     }
   }
 ];
 ---
 
-<section class="relative py-16 md:py-24 bg-zinc-950 overflow-hidden">
+<section class="relative py-16 md:py-24 bg-zinc-900 overflow-hidden">
   <!-- Background effects -->
   <GridBackground />
   <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-1/4 left-1/4 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 left-1/4 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl"></div>
 
   <div class="relative max-w-6xl mx-auto px-4 md:px-6">
     <!-- Header -->
     <div class="text-center mb-12 md:mb-16">
       <p class="text-violet-400 text-xs font-medium tracking-wider uppercase mb-3">La transformation</p>
       <h2 class="text-2xl md:text-4xl font-semibold text-white mb-4">
-        Arrêtez de subir Make.<br class="hidden sm:block" />
-        <span class="text-violet-400">Commencez à dompter l'outil.</span>
+        Votre vie professionnelle<br class="hidden sm:block" />
+        <span class="text-violet-400">avant et après la formation</span>
       </h2>
       <p class="text-zinc-400 max-w-xl mx-auto">
-        Ce n'est pas juste une formation. C'est un changement d'état d'esprit.
+        Ce n'est pas juste une formation. C'est un nouveau départ.
       </p>
     </div>
 
@@ -79,12 +79,12 @@ const transformations = [
       <!-- Before column -->
       <div class="p-8 lg:p-10 border-r border-zinc-800">
         <div class="flex items-center gap-3 mb-8">
-          <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
-            <Icon name="lucide:x" class="w-5 h-5 text-red-400" />
+          <div class="w-10 h-10 rounded-full bg-zinc-700/50 flex items-center justify-center">
+            <Icon name="lucide:x" class="w-5 h-5 text-zinc-400" />
           </div>
           <div>
-            <p class="text-xs font-medium text-red-400 uppercase tracking-wider">Avant</p>
-            <p class="text-lg font-semibold text-white">Seul face à la machine</p>
+            <p class="text-xs font-medium text-zinc-500 uppercase tracking-wider">Aujourd'hui</p>
+            <p class="text-lg font-semibold text-white">Votre quotidien actuel</p>
           </div>
         </div>
 
@@ -92,12 +92,12 @@ const transformations = [
           {transformations.map((item) => (
             <div class="group">
               <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-lg bg-red-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon name={item.before.icon} class="w-4 h-4 text-red-400" />
+                <div class="w-7 h-7 rounded-lg bg-zinc-800 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name={item.before.icon} class="w-4 h-4 text-zinc-500" />
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-white mb-1">{item.before.title}</h4>
-                  <p class="text-sm text-zinc-400 leading-relaxed">{item.before.description}</p>
+                  <h4 class="text-base font-semibold text-zinc-300 mb-1">{item.before.title}</h4>
+                  <p class="text-sm text-zinc-500 leading-relaxed">{item.before.description}</p>
                 </div>
               </div>
             </div>
@@ -108,12 +108,12 @@ const transformations = [
       <!-- After column -->
       <div class="p-8 lg:p-10 bg-violet-500/5">
         <div class="flex items-center gap-3 mb-8">
-          <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center">
-            <Icon name="lucide:check" class="w-5 h-5 text-violet-400" />
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <Icon name="lucide:check" class="w-5 h-5 text-emerald-400" />
           </div>
           <div>
-            <p class="text-xs font-medium text-violet-400 uppercase tracking-wider">Après</p>
-            <p class="text-lg font-semibold text-white">Le mindset d'Expert</p>
+            <p class="text-xs font-medium text-emerald-400 uppercase tracking-wider">Après la formation</p>
+            <p class="text-lg font-semibold text-white">Votre nouvelle vie</p>
           </div>
         </div>
 
@@ -121,8 +121,8 @@ const transformations = [
           {transformations.map((item) => (
             <div class="group">
               <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-lg bg-violet-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon name={item.after.icon} class="w-4 h-4 text-violet-400" />
+                <div class="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name={item.after.icon} class="w-4 h-4 text-emerald-400" />
                 </div>
                 <div>
                   <h4 class="text-base font-semibold text-white mb-1">{item.after.title}</h4>
@@ -142,28 +142,28 @@ const transformations = [
           <!-- Before -->
           <div class="p-4 border-b border-zinc-800">
             <div class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-lg bg-red-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                <Icon name={item.before.icon} class="w-4 h-4 text-red-400" />
+              <div class="w-7 h-7 rounded-lg bg-zinc-800 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name={item.before.icon} class="w-4 h-4 text-zinc-500" />
               </div>
               <div>
-                <p class="text-[10px] font-medium text-red-400 uppercase tracking-wider mb-0.5">Avant</p>
-                <h4 class="text-sm font-semibold text-white mb-1">{item.before.title}</h4>
-                <p class="text-xs text-zinc-400 leading-relaxed">{item.before.description}</p>
+                <p class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider mb-0.5">Aujourd'hui</p>
+                <h4 class="text-sm font-semibold text-zinc-300 mb-1">{item.before.title}</h4>
+                <p class="text-xs text-zinc-500 leading-relaxed">{item.before.description}</p>
               </div>
             </div>
           </div>
           <!-- Arrow -->
           <div class="py-1.5 flex justify-center bg-zinc-800/50">
-            <Icon name="lucide:arrow-down" class="w-4 h-4 text-violet-400" />
+            <Icon name="lucide:arrow-down" class="w-4 h-4 text-emerald-400" />
           </div>
           <!-- After -->
-          <div class="p-4 bg-violet-500/5">
+          <div class="p-4 bg-emerald-500/5">
             <div class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-lg bg-violet-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                <Icon name={item.after.icon} class="w-4 h-4 text-violet-400" />
+              <div class="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name={item.after.icon} class="w-4 h-4 text-emerald-400" />
               </div>
               <div>
-                <p class="text-[10px] font-medium text-violet-400 uppercase tracking-wider mb-0.5">Après</p>
+                <p class="text-[10px] font-medium text-emerald-400 uppercase tracking-wider mb-0.5">Après</p>
                 <h4 class="text-sm font-semibold text-white mb-1">{item.after.title}</h4>
                 <p class="text-xs text-zinc-400 leading-relaxed">{item.after.description}</p>
               </div>
@@ -176,7 +176,7 @@ const transformations = [
     <!-- Bottom hook -->
     <div class="mt-10 text-center">
       <p class="text-lg text-zinc-400">
-        <span class="font-semibold text-white">Devenez l'architecte de votre automatisation.</span> Votre business devient <span class="text-violet-400 font-medium">une machine autonome</span>.
+        <span class="font-semibold text-white">Prêt à écrire la suite ?</span> Votre reconversion commence <span class="text-emerald-400 font-medium">maintenant</span>.
       </p>
     </div>
   </div>

@@ -1,18 +1,18 @@
 ---
-// CTA Final - Vente directeim
+// CTA Final - Reconversion CPF
 import CTAButton from "./CTAButton.astro";
 import GridBackground from "./ui/GridBackground.astro";
 
 const benefits = [
-    "+ de 100 vidéos",
-    "De zéro à autonome",
-    "Nouveaux projets réguliers",
+    "Aucun prérequis technique",
+    "Formation certifiante RS6228",
+    "100% financé par votre CPF",
 ];
 
 const reassurances = [
-    "🔒 Paiement sécurisé",
-    "Accès immédiat",
-    "Garantie 30 jours",
+    "Éligible CPF",
+    "Inscription 2 minutes",
+    "Prise en charge à 100%",
 ];
 ---
 
@@ -20,24 +20,36 @@ const reassurances = [
     id="cta-final"
     class="relative py-16 md:py-24 bg-zinc-950 overflow-hidden"
 >
-    <!-- Grille en fond (DOIT être à l'intérieur du conteneur relative) -->
+    <!-- Grille en fond -->
     <GridBackground />
 
     <div class="relative max-w-5xl mx-auto px-4 md:px-6 text-center">
-        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">
-            Arrêtez de perdre du temps.<br class="hidden sm:block" />
-            <span class="text-violet-400">Automatisez.</span>
+        <!-- Badge -->
+        <span class="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20 mb-6">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            Formation 100% financée par le CPF
+        </span>
+
+        <h2 class="text-2xl md:text-4xl font-semibold text-white mb-4">
+            Prêt à vous lancer ?<br class="hidden sm:block" />
+            <span class="text-emerald-400">Votre reconversion commence ici.</span>
         </h2>
+
+        <p class="text-zinc-400 text-sm md:text-base max-w-lg mx-auto mb-8">
+            300+ personnes ont déjà franchi le cap. Elles avaient les mêmes doutes que vous. La différence ? Elles ont cliqué.
+        </p>
 
         <!-- Benefits -->
         <ul
-            class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-zinc-400 mb-6"
+            class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-zinc-400 mb-8"
         >
             {
                 benefits.map((benefit) => (
                     <li class="flex items-center gap-2">
                         <svg
-                            class="w-4 h-4 text-violet-400 shrink-0"
+                            class="w-4 h-4 text-emerald-400 shrink-0"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -55,17 +67,21 @@ const reassurances = [
             }
         </ul>
 
-        <!-- Price -->
-        <p class="text-zinc-400 text-sm mb-6">
-            <span class="text-white font-semibold text-lg">499€</span> · Accès à vie
-        </p>
+        <!-- Price highlight -->
+        <div class="inline-flex items-baseline gap-2 mb-8">
+            <span class="text-4xl md:text-5xl font-bold text-emerald-400">0€</span>
+            <span class="text-zinc-500 text-sm">pour vous</span>
+        </div>
 
         <!-- CTA -->
-        <CTAButton href="#pricing" />
+        <div class="mb-4">
+            <CTAButton href="#pricing" text="Commencer ma reconversion" variant="cpf" />
+        </div>
 
         <!-- Micro-reassurance -->
-        <p class="text-xs text-zinc-500 mt-4">
+        <p class="text-xs text-zinc-500">
             {reassurances.join(" · ")}
         </p>
     </div>
 </section>
+

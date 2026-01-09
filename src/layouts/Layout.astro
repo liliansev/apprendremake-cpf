@@ -6,9 +6,260 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Formation Make complète : de zéro à autonome en 2 semaines. + de 100 vidéos, projets terrain, formateur certifié Make Partner. 499€ accès à vie." } = Astro.props;
-const siteUrl = "https://apprendremake.com";
+const { title, description = "Formation Make certifiante RS6228 éligible CPF. Reconvertissez-vous dans l'automatisation no-code. 100% financé par votre CPF. Aucun prérequis technique. +300 personnes formées." } = Astro.props;
+const siteUrl = "https://apprendremake.fr";
 const ogImage = `${siteUrl}/og-image.png`;
+const currentUrl = Astro.url.href;
+
+// Structured Data - Organization
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Apprendre Make",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.png`,
+  "description": "Formation Make certifiante RS6228 - Expert en automatisation no-code",
+  "founder": {
+    "@type": "Person",
+    "name": "Lilian",
+    "jobTitle": "Make Partner & Trainer"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/lilian"
+  ]
+};
+
+// Structured Data - Course (critical for GEO/LLM)
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Formation Make - Automatisation No-Code",
+  "description": "Formation certifiante RS6228 pour apprendre Make (anciennement Integromat). Devenez expert en automatisation no-code. 100% financé par le CPF.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Apprendre Make",
+    "url": siteUrl
+  },
+  "educationalCredentialAwarded": "Certification RS6228",
+  "courseCode": "RS6228",
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT40H",
+    "inLanguage": "fr"
+  },
+  "teaches": [
+    "Automatisation des processus métier",
+    "Utilisation de Make (Integromat)",
+    "Intégration d'applications (Notion, Airtable, Google Sheets, etc.)",
+    "Automatisation no-code",
+    "Connexion d'APIs"
+  ],
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "Professionnel en reconversion",
+    "audienceType": "Débutant"
+  },
+  "financialAidEligible": "CPF (Compte Personnel de Formation)",
+  "occupationalCredentialAwarded": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Certification",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "France Compétences"
+    }
+  }
+};
+
+// Structured Data - FAQPage (critical for GEO/LLM)
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que Make et pourquoi apprendre à l'utiliser ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Make (anciennement Integromat) est une plateforme d'automatisation no-code qui permet de connecter plus de 2000 applications entre elles. C'est l'outil le plus demandé pour l'automatisation des processus métier. Apprendre Make vous ouvre les portes de métiers comme Consultant Make freelance, Ops Manager, ou Responsable automatisation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cette formation est-elle accessible sans expérience technique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, absolument. Make est 100% no-code — tout se fait en glisser-déposer. 80% des élèves n'avaient aucun background technique avant de commencer. Si vous savez utiliser un ordinateur, vous pouvez apprendre Make."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment financer cette formation avec le CPF ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La formation est certifiante (RS6228) et 100% éligible au CPF. Cliquez sur le bouton d'inscription, créez votre compte sur la plateforme Mon Compte Formation, et suivez les instructions. La formation peut être prise en charge à 100% — vous ne déboursez rien de votre poche."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels métiers après une formation Make ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Après cette formation, vous pouvez devenir : Consultant Make freelance, Ops Manager, Responsable automatisation, Intégrateur no-code, ou utiliser ces compétences pour améliorer votre poste actuel. Le no-code est un secteur en forte croissance dans le digital."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La formation est-elle certifiante ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Cette formation est enregistrée au Répertoire Spécifique sous le code RS6228 délivré par France Compétences. Vous recevez une attestation de fin de formation reconnue que vous pouvez valoriser sur votre CV et LinkedIn."
+      }
+    }
+  ]
+};
+
+// Structured Data - WebPage
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": currentUrl,
+  "inLanguage": "fr",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Apprendre Make",
+    "url": siteUrl
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Formation Make automatisation no-code CPF"
+  },
+  "mentions": [
+    { "@type": "Thing", "name": "Make" },
+    { "@type": "Thing", "name": "Integromat" },
+    { "@type": "Thing", "name": "CPF" },
+    { "@type": "Thing", "name": "No-code" },
+    { "@type": "Thing", "name": "Automatisation" },
+    { "@type": "Thing", "name": "RS6228" }
+  ]
+};
+
+// Structured Data - BreadcrumbList (SEO)
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Formation Make CPF",
+      "item": `${siteUrl}/`
+    }
+  ]
+};
+
+// Structured Data - Product with AggregateRating (for rich snippets)
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Formation Make - Automatisation No-Code",
+  "description": "Formation certifiante RS6228 pour maîtriser Make. Apprenez l'automatisation no-code et reconvertissez-vous dans un métier d'avenir. 100% finançable par le CPF.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Apprendre Make"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "priceValidUntil": "2025-12-31",
+    "description": "100% financé par le CPF"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "300",
+    "reviewCount": "6"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Bilal Riahi" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "reviewBody": "J'avais peur de me lancer dans le digital à 42 ans. La formation m'a donné confiance. Aujourd'hui je suis consultant Make et je ne regrette rien."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Alexis Kovalenko" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "reviewBody": "En moins d'une heure, j'ai compris que c'était fait pour moi. Lilian a une approche claire et accessible, même pour quelqu'un sans background technique."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Ismail Landoulsi" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "reviewBody": "À 38 ans, j'ai quitté mon poste de comptable pour me lancer dans l'automatisation. 6 mois après la formation, j'ai mes premiers clients réguliers."
+    }
+  ]
+};
+
+// Structured Data - Speakable (for voice search / GEO)
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "h2", ".hero-description", ".faq-answer"]
+  },
+  "url": currentUrl
+};
+
+// Structured Data - EducationalOccupationalProgram (detailed for GEO/LLM)
+const programSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOccupationalProgram",
+  "name": "Formation Make - Automatisation No-Code",
+  "description": "Programme de formation certifiante pour apprendre Make (anciennement Integromat). Cette formation permet d'acquérir les compétences en automatisation no-code, recherchées par les entreprises pour les postes de Consultant Make, Ops Manager, ou Responsable Automatisation.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Apprendre Make",
+    "url": siteUrl
+  },
+  "timeToComplete": "P2M",
+  "occupationalCategory": ["15-1299.00", "15-1252.00"],
+  "programType": "Certification",
+  "educationalProgramMode": "Online",
+  "financialAidEligible": {
+    "@type": "DefinedTerm",
+    "name": "CPF",
+    "description": "Compte Personnel de Formation"
+  },
+  "occupationalCredentialAwarded": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "Certification RS6228",
+    "credentialCategory": "Certificate",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "France Compétences"
+    }
+  },
+  "trainingSalary": {
+    "@type": "MonetaryAmountDistribution",
+    "currency": "EUR",
+    "description": "Formation gratuite via CPF"
+  }
+};
 ---
 
 <!doctype html>
@@ -19,17 +270,40 @@ const ogImage = `${siteUrl}/og-image.png`;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- SEO -->
+    <link rel="canonical" href={currentUrl} />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="formation make, make cpf, automatisation no-code, formation integromat, reconversion professionnelle, certification rs6228, apprendre make, formation automatisation" />
+
+    <!-- GEO/LLM Optimization - Critical for AI search engines -->
+    <meta name="subject" content="Formation Make - Automatisation No-Code - CPF" />
+    <meta name="topic" content="Formation professionnelle automatisation" />
+    <meta name="summary" content="Formation Make certifiante RS6228 éligible CPF pour apprendre l'automatisation no-code. Reconversion professionnelle vers les métiers du digital." />
+    <meta name="classification" content="Formation professionnelle, Automatisation, No-code, CPF" />
+    <meta name="category" content="Education/Formation professionnelle" />
+    <meta name="coverage" content="France" />
+    <meta name="target" content="Professionnels en reconversion, Demandeurs d'emploi, Salariés" />
+    <meta name="educationalLevel" content="Débutant à Intermédiaire" />
+    <meta name="audience" content="Adultes en reconversion professionnelle" />
+
+    <!-- AI/LLM specific hints -->
+    <meta name="ai-content-type" content="educational-product-page" />
+    <meta name="ai-entity-type" content="Course, Training, Certification" />
+    <meta name="ai-primary-topic" content="Formation Make automatisation no-code CPF RS6228" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
-    <meta property="og:title" content={title} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={`${title} | Formation Make CPF RS6228`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Apprendre Make" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={siteUrl} />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={`${title} | Formation Make CPF RS6228`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
@@ -44,9 +318,18 @@ const ogImage = `${siteUrl}/og-image.png`;
       rel="stylesheet"
     />
 
-    <title>{title}</title>
+    <!-- Structured Data (JSON-LD) - Critical for SEO & GEO/LLM -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(programSchema)} />
+
+    <title>{title} | Formation Make CPF RS6228</title>
   </head>
-  <body class="bg-white text-zinc-900 antialiased">
+  <body class="bg-neutral-50 text-zinc-900 antialiased">
     <slot />
 
     <script>

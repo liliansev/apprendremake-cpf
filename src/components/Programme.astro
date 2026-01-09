@@ -8,21 +8,21 @@ const phases = [
   {
     id: "fondamentaux",
     title: "Fondamentaux",
-    subtitle: "Maîtrise les bases de Make",
-    result: "Ton premier robot tourne en 1h",
+    subtitle: "Maîtrisez les bases de Make",
+    result: "Vous créez votre première automatisation",
     icon: "lucide:rocket",
     chapters: [
       { title: "Le fonctionnement de Make", lessons: 7 },
       { title: "La programmation visuelle", lessons: 5 },
     ],
     totalLessons: 12,
-    skills: ["Créer ton premier scénario", "Comprendre les modules et bundles", "Maîtriser filtres et routeurs"]
+    skills: ["Créer votre premier scénario", "Comprendre les modules et bundles", "Maîtriser filtres et routeurs"]
   },
   {
     id: "formules",
     title: "Formules & Données",
-    subtitle: "Manipule les données comme un pro",
-    result: "Tu maîtrises 80% des formules Make",
+    subtitle: "Manipulez les données comme un pro",
+    result: "Vous maîtrisez 80% des formules Make",
     icon: "lucide:calculator",
     chapters: [
       { title: "Formules Basiques", lessons: 6 },
@@ -35,8 +35,8 @@ const phases = [
   {
     id: "integrations",
     title: "Intégrations",
-    subtitle: "Connecte tous tes outils",
-    result: "Tu connectes n'importe quel outil",
+    subtitle: "Connectez tous les outils",
+    result: "Vous connectez n'importe quelle application",
     icon: "lucide:plug",
     chapters: [
       { title: "Bonnes pratiques", lessons: 5 },
@@ -44,13 +44,13 @@ const phases = [
       { title: "Les webhooks", lessons: 7 },
     ],
     totalLessons: 18,
-    skills: ["Appeler n'importe quelle API", "Déclencher des scénarios en temps réel", "Organiser tes automatisations"]
+    skills: ["Appeler n'importe quelle API", "Déclencher des scénarios en temps réel", "Organiser vos automatisations"]
   },
   {
     id: "avance",
     title: "Niveau Avancé",
-    subtitle: "Deviens un expert Make",
-    result: "Tu es autonome sur n'importe quel projet",
+    subtitle: "Devenez un expert Make",
+    result: "Vous êtes prêt pour le marché",
     icon: "lucide:trophy",
     chapters: [
       { title: "Boucles & Arrays", lessons: 8 },
@@ -107,18 +107,18 @@ const bonusModules = [
   {
     id: "ia",
     title: "Make + Intelligence Artificielle",
-    subtitle: "Automatise avec l'IA",
+    subtitle: "La compétence la plus demandée",
     icon: "lucide:sparkles",
     color: "rose",
-    highlights: ["Intégrer ChatGPT & Claude dans tes scénarios", "Analyser des documents automatiquement", "Générer du contenu à la volée"]
+    highlights: ["Intégrer ChatGPT & Claude dans vos scénarios", "Analyser des documents automatiquement", "Générer du contenu à la volée"]
   },
   {
     id: "experience",
-    title: "Projets Clients & Expérience Terrain",
-    subtitle: "Cas réels d'entrepreneur",
+    title: "Trouver vos premiers clients",
+    subtitle: "De la formation à l'emploi",
     icon: "lucide:briefcase",
     color: "cyan",
-    highlights: ["Coulisses d'automatisations livrées", "Erreurs à éviter en clientèle", "Stratégies de pricing & vente"]
+    highlights: ["Comment vous positionner sur le marché", "Fixer vos tarifs (freelance ou salarié)", "Décrocher votre première mission"]
   }
 ];
 
@@ -178,10 +178,10 @@ const totalChapters = phases.reduce((acc, phase) => acc + phase.chapters.length,
     <div class="text-center mb-12 md:mb-16">
       <p class="text-violet-600 text-xs font-medium tracking-wider uppercase mb-3">Programme complet</p>
       <h2 class="text-2xl md:text-4xl font-semibold text-zinc-900 mb-3">
-        De débutant à expert Make
+        De zéro à expert Make
       </h2>
       <p class="text-zinc-500 text-sm md:text-base max-w-xl mx-auto mb-6">
-        Un parcours structuré en 4 phases progressives, avec exercices et quiz.
+        Un parcours structuré en 4 phases, conçu pour les débutants. Aucun prérequis technique.
       </p>
 
       <!-- Stats pills -->

@@ -1,27 +1,32 @@
 ---
-// FAQ section - Dark mode design
+// FAQ section - Questions reconversion
 import GridBackground from './ui/GridBackground.astro';
+import CTAButton from './CTAButton.astro';
 
 const faqs = [
     {
-        q: "C'est un paiement unique ?",
-        a: "Oui, 499€ une seule fois. Accès à vie à tout le contenu, mises à jour et communauté inclus.",
+        q: "Je n'ai aucune expérience technique, c'est vraiment pour moi ?",
+        a: "Oui, absolument. Make est 100% no-code — tout se fait en glisser-déposer. <strong>80% de mes élèves n'avaient aucun background technique</strong>. Si vous savez utiliser un ordinateur, vous pouvez apprendre Make.",
     },
     {
-        q: "Faut-il savoir coder ?",
-        a: "Non, zéro code. Make est 100% no-code, tout se fait en glisser-déposer.",
+        q: "Quels métiers après cette formation ?",
+        a: "Consultant Make freelance, Ops Manager, Responsable automatisation, Intégrateur no-code... Les entreprises s'arrachent ces profils. Le no-code est <strong>le secteur qui recrute le plus</strong> dans le digital.",
     },
     {
-        q: "Et si la formation ne me convient pas ?",
-        a: "Garantie 30 jours : remboursement sans question, un simple email suffit.",
+        q: "J'ai 40/45/50 ans, c'est trop tard ?",
+        a: "Non. La moyenne d'âge de mes élèves est de <strong>38 ans</strong>. Votre expérience professionnelle est un atout, pas un frein. Vous comprenez les problèmes des entreprises — Make vous donne les outils pour les résoudre.",
     },
     {
-        q: "La formation est-elle éligible au CPF ?",
-        a: "Oui ! <a href='https://lilian.yt/makecpf?ref=sitefaq' class='text-violet-400 hover:text-violet-300 underline font-medium'>Vérifie ton éligibilité ici</a> — je gère l'administratif.",
+        q: "Combien de temps pour trouver mes premiers clients ?",
+        a: "Mes élèves les plus motivés décrochent leurs <strong>premiers clients en 2-3 mois</strong>. Certains pendant la formation. Tout dépend de votre investissement et de votre réseau.",
     },
     {
-        q: "Une question ?",
-        a: "Écris-moi sur LinkedIn ou à lilian@apprendremake.fr — je réponds personnellement.",
+        q: "Comment financer cette formation avec mon CPF ?",
+        a: "C'est simple : cliquez sur le bouton d'inscription, créez votre compte sur la plateforme CPF, et suivez les instructions. La formation est <strong>100% prise en charge</strong> — vous ne déboursez rien de votre poche.",
+    },
+    {
+        q: "La formation est-elle certifiante ?",
+        a: "Oui ! Cette formation est enregistrée au <strong>Répertoire Spécifique sous le code RS6228</strong>. Vous recevez une attestation de fin de formation reconnue que vous pouvez valoriser sur votre CV et LinkedIn.",
     },
 ];
 ---
@@ -36,11 +41,12 @@ const faqs = [
             <p
                 class="text-violet-400 text-xs font-medium tracking-wider uppercase mb-3"
             >
-                Vos questions
+                Questions fréquentes
             </p>
             <h2 class="text-xl md:text-2xl font-semibold text-white">
                 Vous hésitez encore ?
             </h2>
+            <p class="text-zinc-400 text-sm mt-2">Les réponses aux questions les plus posées par les personnes en reconversion</p>
         </div>
 
         <!-- FAQ Items -->
@@ -73,6 +79,15 @@ const faqs = [
                     </details>
                 ))
             }
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="mt-10 text-center">
+            <p class="text-zinc-400 text-sm mb-2">Une autre question ?</p>
+            <p class="text-zinc-500 text-sm mb-6">
+                Écrivez-moi sur <a href="https://linkedin.com/in/lilian" class="text-violet-400 hover:text-violet-300 underline">LinkedIn</a> ou à <a href="mailto:lilian@apprendremake.fr" class="text-violet-400 hover:text-violet-300 underline">lilian@apprendremake.fr</a>
+            </p>
+            <CTAButton href="#pricing" text="Financer ma formation" variant="cpf" />
         </div>
     </div>
 </section>
