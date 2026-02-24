@@ -37,9 +37,17 @@ const reassurances = [
             <span class="text-emerald-400">Votre reconversion commence ici.</span>
         </h2>
 
-        <p class="text-zinc-400 text-sm md:text-base max-w-lg mx-auto mb-8">
+        <p class="text-zinc-400 text-sm md:text-base max-w-lg mx-auto mb-4">
             300+ personnes ont déjà franchi le cap. Elles avaient les mêmes doutes que vous. La différence ? Elles ont cliqué.
         </p>
+
+        <!-- Urgency -->
+        <div class="inline-flex items-center gap-1.5 mb-8 text-amber-400 text-xs font-medium bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Places limitées — session mars 2026
+        </div>
 
         <!-- Benefits -->
         <ul
@@ -75,7 +83,7 @@ const reassurances = [
 
         <!-- CTA -->
         <div class="mb-4">
-            <CTAButton href="#pricing" text="Commencer ma reconversion" variant="cpf" />
+            <CTAButton href="https://lilian.yt/paiementmake?ref=siteweb" text="Commencer ma reconversion — 0€" variant="cpf" animated={true} />
         </div>
 
         <!-- Micro-reassurance -->
