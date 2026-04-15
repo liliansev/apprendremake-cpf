@@ -65,8 +65,8 @@ const apps = [
     >
         <div class="max-w-5xl mx-auto px-4 md:px-6 w-full">
             <div class="text-center">
-                <!-- Badge CPF -->
-                <div class="inline-flex items-center gap-2 mb-6 md:mb-8">
+                <!-- Badges CPF + Urgence -->
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 mb-6 md:mb-8">
                     <span
                         class="inline-flex items-center gap-1.5 text-emerald-700 text-xs font-semibold px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200"
                     >
@@ -74,6 +74,14 @@ const apps = [
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         Formation certifiante · 100% financé CPF
+                    </span>
+                    <span
+                        class="inline-flex items-center gap-1.5 text-amber-700 text-xs font-semibold px-4 py-2 rounded-full bg-amber-50 border border-amber-200 animate-pulse"
+                    >
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Places limitées — Session mars 2026
                     </span>
                 </div>
 
@@ -133,11 +141,24 @@ const apps = [
                     />
                 </div>
 
-                <!-- Social Proof -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-zinc-500 text-sm">
-                    <span>+ de 300 personnes formées</span>
-                    <span class="hidden sm:inline text-zinc-300">•</span>
-                    <span class="text-emerald-600 font-medium">80% n'avaient aucun background tech</span>
+                <!-- Social Proof - Stats bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
+                    <div class="text-center p-3 rounded-xl bg-zinc-50 border border-zinc-100">
+                        <div class="text-lg font-bold text-zinc-900">300+</div>
+                        <div class="text-xs text-zinc-500">personnes formées</div>
+                    </div>
+                    <div class="text-center p-3 rounded-xl bg-zinc-50 border border-zinc-100">
+                        <div class="text-lg font-bold text-emerald-600">92%</div>
+                        <div class="text-xs text-zinc-500">taux de satisfaction</div>
+                    </div>
+                    <div class="text-center p-3 rounded-xl bg-zinc-50 border border-zinc-100">
+                        <div class="text-lg font-bold text-zinc-900">2-3 mois</div>
+                        <div class="text-xs text-zinc-500">premiers clients</div>
+                    </div>
+                    <div class="text-center p-3 rounded-xl bg-emerald-50 border border-emerald-100">
+                        <div class="text-lg font-bold text-emerald-600">0€</div>
+                        <div class="text-xs text-emerald-600">grâce au CPF</div>
+                    </div>
                 </div>
             </div>
         </div>

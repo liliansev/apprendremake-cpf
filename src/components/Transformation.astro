@@ -2,6 +2,7 @@
 // Transformation section - "The Gap" - Before/After reconversion journey (DARK accent)
 import { Icon } from 'astro-icon/components';
 import GridBackground from "./ui/GridBackground.astro";
+import CTAButton from "./CTAButton.astro";
 
 const transformations = [
   {
@@ -173,11 +174,12 @@ const transformations = [
       ))}
     </div>
 
-    <!-- Bottom hook -->
-    <div class="mt-10 text-center">
+    <!-- Bottom hook + CTA -->
+    <div class="mt-10 text-center space-y-4">
       <p class="text-lg text-zinc-400">
         <span class="font-semibold text-white">Prêt à écrire la suite ?</span> Votre reconversion commence <span class="text-emerald-400 font-medium">maintenant</span>.
       </p>
+      <CTAButton href="#pricing" text="Démarrer ma reconversion — 0€" variant="cpf" />
     </div>
   </div>
 </section>
